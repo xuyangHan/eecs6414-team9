@@ -2,15 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script  type="text/javascript" src="static/js/fullpage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script type="text/javascript" src="static/js/fullpage.js"></script>
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/usaAlbersLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="static/js/Chart.min.js"></script>
+    <script src="static/js/utils.js"></script>
 
     <link rel="stylesheet" type="text/css" href="static/css/fullpage.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/gender.css"/>
     <title>Title</title>
 </head>
 <body>
 <div id="fullpage">
-    <div class="section">Some section</div>
-    <div class="section">Some section</div>
+    <div class="section" id="section0">
+        <div class="intro">
+            <p class="title is-1 has-text-white">Data Analysis and Visualization of Global Gender Equality</p>
+            <p class="subtitle is-3 has-text-white">EECS 6414: Case Study Project</p>
+        </div>
+    </div>
+    <div class="section" id="section1">
+        <div class="columns">
+            <div class="column is-6 is-offset-1" style="background-color: azure">
+                <div id="chartdiv" style="width: 100%; height: 500px"></div>
+            </div>
+            <div class="column" style="text-align: center">
+                <p class="subtitle is-3 has-text-white">A map generate using amChart.js</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="section" id="section2">
+        <div class="columns">
+            <div class="column is-5" style="text-align: center">
+                <p class="subtitle is-3 has-text-white">A figure generate using Chart.js</p>
+            </div>
+            <div class="column is-6" style="background-color: azure">
+                <div style="width: 90%">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <button id="randomizeData">Randomize Data</button>
+            </div>
+
+        </div>
+    </div>
     <div class="section">
         <div class="slide"> Slide 1</div>
         <div class="slide"> Slide 2</div>
@@ -18,13 +55,10 @@
         <div class="slide"> Slide 4</div>
     </div>
 
-    <div class="section">Some section</div>
+
 </div>
 
-<script type="text/javascript">
-	var myFullpage = new fullpage('#fullpage', {
-		sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', 'yellow', 'orange', '#C0C0C0', '#ADD8E6']
-	});
-</script>
+<script type="text/javascript" src="static/js/gender.js"></script>
+
 </body>
 </html>
