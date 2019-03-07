@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>Display a popup</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id='myDiv' class="border is-primary"></div>
+<section>
+    <div id="test"></div>
+</section>
+<script>
+    Plotly.d3.csv('static/data/example.xlsx', function (err, rows) {
+
+        var classArray = unpack(rows, 'Codes');
+        var classes = [...new Set(classArray)];
+
+        function unpack(rows, key) {
+            return rows.map(function (row) {
+                return row[key];
+            });
+        }
+
+        var data = classes.map(function (classes) {
+            var rowsFiltered = rows.filter(function (row) {
+                return (row.class === classes);
+            });
+            return {
+                type: 'scattermapbox',
+                name: classes,
+                lat: unpack(rowsFiltered, 'lat'),
+                lon: unpack(rowsFiltered, 'long')
+            };
+        });
+
+        var layout = {
+            autosize: true,
+            hovermode: 'closest',
+            margin: {
+                r: 20,
+                t: 40,
+                b: 20,
+                l: 20,
+                pad: 0
+            },
+            mapbox: {
+                bearing: 0,
+                center: {
+                    lat: 43.76,
+                    lon: -79.5
+                },
+                pitch: 0,
+                zoom: 5
+            },
+        };
+
+        Plotly.setPlotConfig({
+            mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg'
+        });
+
+        Plotly.plot('myDiv', data, layout);
+    });
+
+</script>
+
+</body>
+</html>
