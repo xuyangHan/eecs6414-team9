@@ -32,7 +32,7 @@
         },
         text: ['YorkU']
     };
-    Plotly.d3.csv('static/data/example.csv', function (err, rows) {
+    Plotly.d3.csv('static/data/example.CSV', function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
                 return row[key];
