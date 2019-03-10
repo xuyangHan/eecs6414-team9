@@ -20,30 +20,62 @@
     <div id="test"></div>
 </section>
 <script>
-    Plotly.d3.csv('static/data/example.xlsx', function (err, rows) {
-
-        var classArray = unpack(rows, 'Codes');
-        var classes = [...new Set(classArray)];
-
+    let yorkU_data = {
+        type: 'scattermapbox',
+        name: 'YorkU',
+        lat: ['43.7735'],
+        lon: ['-79.5019'],
+        mode: 'markers',
+        marker: {
+            size: 14,
+            color: 'rgb(255, 0, 0)',
+        },
+        text: ['YorkU']
+    };
+    Plotly.d3.csv('static/data/example.csv', function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
                 return row[key];
             });
         }
 
-        var data = classes.map(function (classes) {
-            var rowsFiltered = rows.filter(function (row) {
-                return (row.class === classes);
-            });
-            return {
-                type: 'scattermapbox',
-                name: classes,
-                lat: unpack(rowsFiltered, 'lat'),
-                lon: unpack(rowsFiltered, 'long')
-            };
-        });
+        scl = [
+            [0, 'rgb(0, 25, 255)'],
+            [0.175, 'rgb(0, 152, 255)'],
+            [0.375, 'rgb(44, 255, 150)'],
+            [0.5, 'rgb(151, 255, 0)'],
+            [0.625, 'rgb(255, 234, 0)'],
+            [0.75, 'rgb(255, 111, 0)'],
+            [1, 'rgb(255, 0, 0)']];
 
-        var layout = {
+        let student_data =
+            {
+                type: 'scattermapbox',
+                mode: 'markers',
+                lon: unpack(rows, 'long'),
+                lat: unpack(rows, 'lat'),
+                text: unpack(rows, 'commute_time'),
+                name: 'students',
+                marker: {
+                    color: unpack(rows, 'commute_time_min'),
+                    colorscale: scl,
+                    cmin: 0,
+                    cmax: 30,
+                    reversescale: false,
+                    size: 8,
+                    opacity: 0.8,
+                    colorbar: {
+                        thickness: 10,
+                        titleside: 'right',
+                        outlinecolor: 'rgba(68,68,68,0)',
+                        ticksuffix: ' min',
+                    }
+                }
+            };
+
+        let data = [yorkU_data, student_data];
+
+        let layout = {
             autosize: true,
             hovermode: 'closest',
             margin: {
@@ -53,14 +85,15 @@
                 l: 20,
                 pad: 0
             },
+            showlegend: false,
             mapbox: {
                 bearing: 0,
                 center: {
-                    lat: 43.76,
-                    lon: -79.5
+                    lat: 43.7735,
+                    lon: -79.5019
                 },
                 pitch: 0,
-                zoom: 5
+                zoom: 12
             },
         };
 
