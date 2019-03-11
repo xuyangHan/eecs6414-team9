@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 
 # to get codes df from the postal csv
-codes_df = pd.read_excel(r'static/data/sample codes.xlsx')
+codes_df = pd.read_excel(r'static/data/distribution.xlsx')
 
 # some codes to get lat and long from google maps api
 i = 0
@@ -25,6 +25,6 @@ for code in codes_df['Codes']:
 # some codes to generate a csv file with lat and long
 codes_df['lat'] = lat
 codes_df['long'] = long
-writer = pd.ExcelWriter('static/data/example.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('static/data/distribution.xlsx', engine='xlsxwriter')
 codes_df.to_excel(writer, sheet_name='sheet1')
 writer.save()
