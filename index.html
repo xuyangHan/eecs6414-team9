@@ -8,6 +8,7 @@
     <script src="https://www.amcharts.com/lib/4/maps.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/usaAlbersLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="static/js/Chart.min.js"></script>
     <script src="static/js/utils.js"></script>
 
@@ -86,7 +87,9 @@
                     </p>
                     <ul class="menu-list" style="list-style-type:disc;">
                         <li>Demographically. “which area will gain more commuting pressure?”</li>
-                        <li>Changes in routes. “If an existing route is canceled or new route is created, how does it influence the YorkU students commuting time ”</li>
+                        <li>Changes in routes. “If an existing route is canceled or new route is created, how does it
+                            influence the YorkU students commuting time ”
+                        </li>
                         <li>Bad weather impact / Service outage impact</li>
                     </ul>
                 </aside>
@@ -94,34 +97,57 @@
         </div>
     </div>
 
-    <div class="section" id="section1">
+    <div class="section">
         <div class="columns">
-            <div class="column is-6 is-offset-1" style="background-color: azure">
-                <div id="chartdiv" style="width: 100%; height: 500px"></div>
+            <div class="column is-6 is-offset-1">
+                <div id='bubbleMap' class="border is-primary"></div>
             </div>
             <div class="column" style="text-align: center">
-                <p class="title"> Sample Result - 1</p>
-                <p class="subtitle is-3 has-text-white">A map generate using amChart.js</p>
+                <p class="title"> [Sample] Bubble Map</p>
+                <p class="subtitle is-3 has-text-white">A map showing the distributions of yorku students</p>
             </div>
         </div>
-
     </div>
-    <div class="section" id="section2">
+
+    <div class="section">
         <div class="columns">
             <div class="column is-5" style="text-align: center">
-                <p class="title"> Sample Result - 2</p>
-                <p class="subtitle is-3 has-text-white">A figure generate using Chart.js</p>
+                <p class="title"> [Sample] Commutes of YorkU Students </p>
+                <p class="subtitle is-3 has-text-white">A map showing how much time students come to the university</p>
             </div>
             <div class="column is-6" style="background-color: azure">
-                <div style="width: 90%">
-                    <canvas id="canvas"></canvas>
-                </div>
-                <button id="randomizeData">Randomize Data</button>
+                <div id='distanceMap' class="border is-primary"></div>
             </div>
 
         </div>
     </div>
 
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-6 is-offset-1" style="background-color: azure">-->
+                <!--<div id="chartdiv" style="width: 100%; height: 500px"></div>-->
+            <!--</div>-->
+            <!--<div class="column" style="text-align: center">-->
+                <!--<p class="title"> Sample Result - 1</p>-->
+                <!--<p class="subtitle is-3 has-text-white">A map generate using amChart.js</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-5" style="text-align: center">-->
+                <!--<p class="title"> Sample Result - 2</p>-->
+                <!--<p class="subtitle is-3 has-text-white">A figure generate using Chart.js</p>-->
+            <!--</div>-->
+            <!--<div class="column is-6" style="background-color: azure">-->
+                <!--<div style="width: 90%">-->
+                    <!--<canvas id="canvas"></canvas>-->
+                <!--</div>-->
+                <!--<button id="randomizeData">Randomize Data</button>-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
     <div class="section">
         <div class="columns">
             <div class="column is-offset-1">
@@ -142,6 +168,7 @@
                         Interactive map
                     </p>
                     <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Plotly.js</li>
                         <li>Kepler.gl</li>
                         <li>D3.js</li>
                     </ul>
@@ -161,7 +188,9 @@
             <div class="column is-offset-1 is-5">
                 <p class="title">References</p>
                 <ul>
-                    <li>List of 25 municipalitiesin Greater Toronto Area (GTA) in York Region, Halton Region, Peel Region, Durham Region or Toronto with population of 6,417,516</li>
+                    <li>List of 25 municipalitiesin Greater Toronto Area (GTA) in York Region, Halton Region, Peel
+                        Region, Durham Region or Toronto with population of 6,417,516
+                    </li>
                 </ul>
             </div>
             <div class="column is-2">
@@ -176,7 +205,7 @@
                 <p class="title">Tools</p>
                 <ul>
                     <li>Fullpage.js to make narrative layout</li>
-                    <li>Kepler.gl and D3.js to generate interactive map</li>
+                    <li>Plotly.js to generate interactive map</li>
                     <li>Chart.js and amChart.js to make relevent figures</li>
                 </ul>
             </div>
@@ -185,16 +214,17 @@
 
 
     <!--<div class="section">-->
-        <!--<div class="slide"> Slide 1</div>-->
-        <!--<div class="slide"> Slide 2</div>-->
-        <!--<div class="slide"> Slide 3</div>-->
-        <!--<div class="slide"> Slide 4</div>-->
+    <!--<div class="slide"> Slide 1</div>-->
+    <!--<div class="slide"> Slide 2</div>-->
+    <!--<div class="slide"> Slide 3</div>-->
+    <!--<div class="slide"> Slide 4</div>-->
     <!--</div>-->
 
 
 </div>
 
 <script type="text/javascript" src="static/js/6414.js"></script>
-
+<script type="text/javascript" src="static/js/bubbleMap.js"></script>
+<script type="text/javascript" src="static/js/distance.js"></script>
 </body>
 </html>
