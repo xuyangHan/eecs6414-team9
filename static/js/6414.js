@@ -1,5 +1,5 @@
 let myFullpage = new fullpage('#fullpage', {
-    sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff', 'yellow', 'orange', '#C0C0C0', '#ADD8E6'],
+    sectionsColor: ['#1BBC9B', '#7E8F7C', '#4BBFC3', '#7BAABE', '#C63D0F', 'whitesmoke', '#ccddff', 'yellow', 'orange', '#C0C0C0'],
     anchors: [''],
     navigation: true,
     navigationPosition: 'right',
