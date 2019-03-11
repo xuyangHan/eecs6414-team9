@@ -1,0 +1,88 @@
+<!--display the commute time-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'/>
+    <title>Display a popup</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet'/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div id='myDiv' class="border is-primary"></div>
+<script>
+    let yorkU_data = {
+        type: 'scattermapbox',
+        name: 'YorkU',
+        lat: ['43.7735'],
+        lon: ['-79.5019'],
+        mode: 'markers',
+        marker: {
+            size: 14,
+        },
+        text: ['YorkU']
+    };
+
+    Plotly.d3.csv('static/data/distribution.CSV', function (err, rows) {
+        function unpack(rows, key) {
+            return rows.map(function (row) {
+                return row[key];
+            });
+        }
+
+        let student_data =
+            {
+                type: 'scattermapbox',
+                mode: 'markers',
+                lon: unpack(rows, 'long'),
+                lat: unpack(rows, 'lat'),
+                text: unpack(rows, 'num'),
+                name: 'students',
+                marker: {
+                    size: unpack(rows, 'size'),
+                    opacity: 0.8,
+                }
+            };
+
+        let data = [yorkU_data, student_data];
+
+        let layout = {
+            autosize: true,
+            hovermode: 'closest',
+            margin: {
+                r: 20,
+                t: 40,
+                b: 20,
+                l: 20,
+                pad: 0
+            },
+            showlegend: false,
+            mapbox: {
+                bearing: 0,
+                center: {
+                    lat: 43.7735,
+                    lon: -79.5019
+                },
+                pitch: 0,
+                zoom: 12
+            },
+        };
+
+        Plotly.setPlotConfig({
+            mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg'
+        });
+
+        Plotly.plot('myDiv', data, layout);
+    });
+
+</script>
+
+</body>
+</html>
