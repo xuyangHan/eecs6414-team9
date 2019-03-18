@@ -37,7 +37,7 @@ for f in new_data['results']:
 
 # some codes to get 20 more supermarkets around york university lat and long from google maps api
 new_new_api_url = new_api_url + '&pagetoken=' + new_data['next_page_token']
-new_new_response = requests.get(url=new_api_url)
+new_new_response = requests.get(url=new_new_api_url)
 new_new_data = new_new_response.json()
 
 for g in new_new_data['results']:
