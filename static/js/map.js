@@ -13,7 +13,7 @@ let yorkU_data = {
     text: ['YorkU']
 };
 
-Plotly.d3.csv('static/data/fitness.CSV', function (err, rows) {
+Plotly.d3.csv('static/data/restaurants.CSV', function (err, rows) {
     function unpack(rows, key) {
         return rows.map(function (row) {
             return row[key];
@@ -83,5 +83,5 @@ Plotly.d3.csv('static/data/fitness.CSV', function (err, rows) {
         mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg'
     });
 
-    Plotly.plot('fitnessDiv', data, layout);
+    Plotly.plot('myDiv', data, layout);
 });
