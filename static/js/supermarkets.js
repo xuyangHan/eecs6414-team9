@@ -42,7 +42,7 @@ Plotly.d3.csv('static/data/supermarkets.CSV', function (err, rows) {
 
     let layout = {
         autosize: true,
-        height:800,
+        height:700,
         hovermode: 'closest',
         margin: {
             r: 20,
