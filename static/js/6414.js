@@ -3,9 +3,12 @@ let myFullpage = new fullpage('#fullpage', {
     anchors: [''],
     navigation: true,
     navigationPosition: 'right',
-    navigationTooltips: ['Title', 'Second page', 'Third and last page']
+    navigationTooltips: ['Title', 'Second page', 'Third and last page'],
+
 });
 
+//methods
+fullpage_api.setAllowScrolling(false);
 
 // Themes begin
 am4core.useTheme(am4themes_animated);
