@@ -44,6 +44,7 @@ Plotly.d3.csv('static/data/example.CSV', function (err, rows) {
 
     let layout = {
         autosize: true,
+        height:800,
         hovermode: 'closest',
         margin: {
             r: 0,
