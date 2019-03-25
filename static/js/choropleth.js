@@ -10,13 +10,17 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
     ];
 
     let data_layers = [];
-    for (let feature_num = 0; feature_num <= torontojson.features.length; feature_num++) {
+    for (let feature_num = 0; feature_num <= torontojson["features"].length; feature_num++) {
+        let source = torontojson["features"][feature_num];
+        // let gb_value = 255 - source["students"];
+        let gb_value = 15 + feature_num * 4;
+        let color = 'rgba(163, ' + gb_value + ', ' + gb_value +', 0.5)';
         data_layers.push(
             {
                 sourcetype: 'geojson',
-                source: torontojson.features[feature_num],
+                source: source,
                 type: 'fill',
-                color: 'rgba(163,22,19,0.5)',
+                color: color,
             }
         );
     }
