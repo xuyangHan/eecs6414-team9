@@ -1,4 +1,5 @@
 import json
+import random
 
 with open('static/data/map.geojson') as json_file:
     data = json.load(json_file)
@@ -6,7 +7,7 @@ with open('static/data/map.geojson') as json_file:
 
 
 for feature in data['features']:
-    feature.update({'students': 0})
+    feature.update({'students': random.randint(1, 101)})
 
 
 with open('static/data/map.geojson', 'w') as outfile:
