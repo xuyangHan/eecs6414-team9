@@ -20,7 +20,13 @@ for feature in geo_data['features']:
     response = requests.get(url=api_url)
     data = response.json()
     time = data['rows'][0]["elements"][0]['duration']['value']
-    feature.update({'commute_time': time})
+    distance = data['rows'][0]["elements"][0]['distance']['value']
+
+    feature.update({'distance': distance})
+    if distance > 3000:
+        feature.update({'commute_time': time + 300})
+    else:
+        feature.update({'commute_time': time})
     i = i + 1
     print(i)
 
