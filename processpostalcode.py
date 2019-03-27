@@ -1,46 +1,37 @@
 import pandas as pd
 import math
+import re
 import requests
 
-# read all postal codes from scratch yuride file
-yuData = pd.read_excel(r'static/data/yuride_postalcodes.xlsx')
-                        #sheetname='Sheet1', header=0, converters={'Affiliation':str, 'Postal Code':str})
+"""
+def add_to_fsa(fsa):
+    if fsa.isalnum():
+        fsaCodes[fsa] = fsaCodes[fsa] + 1
+        return True
+    return False
+"""
 
+# read all postal codes from scratch YURide file
+yuData = pd.read_excel(r'static/data/yuride_postalcodes.xlsx') #sheetname='Sheet1', header=0, converters={'Affiliation':str, 'Postal Code':str})
+
+# read all postal codes from Fusion Tables as reference data
 cPostalCodes = pd.read_csv(r'static/data/canadianpostalcodes.csv')
+#cPostalCodes = pd.read_excel(r'static/data/canadianpostalcodes.xlsx')
 
+# delete/drop un-necessary columns
 del cPostalCodes['FSA1']
 del cPostalCodes['FSA-Province']
 del cPostalCodes['AreaType']
 
-#fsaDict = {'empty': {'empty': 'empty', 'lat': 35}}
-#for postalRecord in cPostalCodes.items():
-#    if postalRecord['FSA'] in fsaDict:
-#        postDict = fsaDict[postalRecord]
-#        postDict[cPostalCodes['PostalCode']] = {'place': cPostalCodes['PostalCode'], 'lat':cPostalCodes['Latitude'], 'lon':cPostalCodes['Longitude']}
-#    else:
-#        fsaDict[postalRecord['FSA']].update({'place': postalRecord['Place Name'], 'lat': postalRecord['Latitude'], 'lon': postalRecord['Longitude']})
-#
-#print(len(fsaDict))
-
-# example
-# myseries[myseries == 7]
-# output: 3    7
-#         dtype: int64
-# myseries[myseries == 7].index[0]
-# output: 3
-
-#print(cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == 'L1X2L6'])
-#print( (cPostalCodes['PostalCode'] == 'L2B6A7').any())
-
-#index = cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == 'L1X2L6'].index[0]
-#print(cPostalCodes['Latitude'][index], cPostalCodes['Longitude'][index], index, cPostalCodes['PostalCode'][index])
-
+# variables for filtering postal codes from YURide file
 pCount = 0
 emptyCount = 0
 procCodes = {'PostalCode': {'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': 'None'}}
+pCodesNotFound = []
 scratchCodes = []
 fsaCodes = []
-# process each postal codes, filter them for considerable values
+
+# process each postal codes, filter them for considerable data frame
 for pCode in yuData['Postal Code']:
     if type(pCode) is float:
         if math.isnan(pCode):
@@ -52,21 +43,22 @@ for pCode in yuData['Postal Code']:
     else:
         pCode = pCode.replace(" ", "").replace("-", "").replace(",", "")\
                     .replace("'", "").replace("?", "").upper()
+        #pCode = re.sub(r'\W+', '', pCode)
 
         if len(pCode) == 3:
             fsaCodes.append(pCode)
         elif len(pCode) != 6:
+            #add_to_fsa(pCode[:3])
             scratchCodes.append(pCode)
         else:
             pCount = pCount + 1
+            #add_to_fsa(pCode[:3])
             if pCode in procCodes:
                 procCodes[pCode]['Count'] = procCodes[pCode]['Count'] + 1
             else:
                 procCodes[pCode] = {'Latitude': 0, 'Longitude': 0, 'Count': 1, 'Place Name': 'None'}
 
-        # print(postalCode[:3].upper())
-
-pNotFound = 0
+# add details to unique postal code which appeared X times by filtering original data
 for pCode, pDetails in procCodes.items():
     if (cPostalCodes['PostalCode'] == pCode).any():
         index = cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == pCode].index[0]
@@ -75,13 +67,18 @@ for pCode, pDetails in procCodes.items():
         pDetails['Longitude'] = cPostalCodes['Longitude'][index]
         pDetails['Place Name'] = cPostalCodes['Place Name'][index]
     else:
-        pNotFound = pNotFound + 1
-        #if pNotFound == 3:
+        del procCodes[pCode]
+        pCodesNotFound.append(pCode)
+        ## condition for small subset test ##
+        #if len(pCodesNotFound) >= 3:
         #    break
 
 writer = pd.ExcelWriter('static/data/yuride_postalcodes_filtered.xlsx', engine='openpyxl')
 procCodes = pd.DataFrame(procCodes).T
 procCodes.to_excel(writer, sheet_name='Postal Details')
+
+pCodesNotFound = pd.DataFrame(pCodesNotFound)
+pCodesNotFound.to_excel(writer, sheet_name='Postal Details Not Found')
 
 fsaCodes = pd.DataFrame(fsaCodes)
 fsaCodes.to_excel(writer, sheet_name='FSA ONLY')
@@ -91,4 +88,5 @@ scratchCodes.to_excel(writer, sheet_name='Scratch Sheet')
 writer.save()
 writer.close()
 
-print(pCount, emptyCount, pCount + emptyCount + len(scratchCodes) + len(fsaCodes), pNotFound)
+print(pCount, emptyCount, pCount + emptyCount + len(scratchCodes) + len(fsaCodes), len(pCodesNotFound))
+
