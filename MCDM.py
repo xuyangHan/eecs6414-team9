@@ -5,6 +5,7 @@ from shapely.geometry import shape, Point
 # open the data supermarkets and fitness
 sup_data = pd.read_csv('static/data/supermarkets.CSV')
 fitness_data = pd.read_csv('static/data/fitness.CSV')
+restaurants_data = pd.read_csv('static/data/restaurants.CSV')
 
 
 # open geojson
@@ -24,6 +25,11 @@ for feature in data['features']:
         p = Point(row['long'], row['lat'])
         if polygon.contains(p):
             feature.update({'fitness': feature['fitness'] + row['rating']})
+
+    for index, row in restaurants_data.iterrows():
+        p = Point(row['long'], row['lat'])
+        if polygon.contains(p):
+            feature.update({'restaurants': feature['restaurants'] + row['rating']})
 
 
 # write new json
