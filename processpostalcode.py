@@ -35,28 +35,39 @@ del cPostalCodes['AreaType']
 #index = cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == 'L1X2L6'].index[0]
 #print(cPostalCodes['Latitude'][index], cPostalCodes['Longitude'][index], index, cPostalCodes['PostalCode'][index])
 
-count = 0
+pCount = 0
 emptyCount = 0
-processedCodes = {'PostalCode': {'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': 'None'}}
+procCodes = {'PostalCode': {'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': 'None'}}
+scratchCodes = []
+fsaCodes = []
 # process each postal codes, filter them for considerable values
-for postalCode in yuData['Postal Code']:
-    if type(postalCode) is float:
-        if math.isnan(postalCode):
+for pCode in yuData['Postal Code']:
+    if type(pCode) is float:
+        if math.isnan(pCode):
             emptyCount = emptyCount + 1
-    elif type(postalCode) is int:
-        emptyCount = emptyCount + 1
-    else:
-        postalCode = postalCode.replace(" ", "").upper()
-        count = count + 1
-        if postalCode in processedCodes:
-            processedCodes[postalCode]['Count'] = processedCodes[postalCode]['Count'] + 1
         else:
-            processedCodes[postalCode] = {'Latitude': 0, 'Longitude': 0, 'Count': 1, 'Place Name': 'None'}
+            scratchCodes.append(pCode)
+    elif type(pCode) is int:
+        scratchCodes.append(pCode)
+    else:
+        pCode = pCode.replace(" ", "").replace("-", "").replace(",", "")\
+                    .replace("'", "").replace("?", "").upper()
+
+        if len(pCode) == 3:
+            fsaCodes.append(pCode)
+        elif len(pCode) != 6:
+            scratchCodes.append(pCode)
+        else:
+            pCount = pCount + 1
+            if pCode in procCodes:
+                procCodes[pCode]['Count'] = procCodes[pCode]['Count'] + 1
+            else:
+                procCodes[pCode] = {'Latitude': 0, 'Longitude': 0, 'Count': 1, 'Place Name': 'None'}
 
         # print(postalCode[:3].upper())
 
 pNotFound = 0
-for pCode, pDetails in processedCodes.items():
+for pCode, pDetails in procCodes.items():
     if (cPostalCodes['PostalCode'] == pCode).any():
         index = cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == pCode].index[0]
         print(pCode, index)
@@ -65,12 +76,19 @@ for pCode, pDetails in processedCodes.items():
         pDetails['Place Name'] = cPostalCodes['Place Name'][index]
     else:
         pNotFound = pNotFound + 1
-        if pNotFound == 3:
-            break
+        #if pNotFound == 3:
+        #    break
 
-writer = pd.ExcelWriter('static/data/yuride_postalcodes_filtered.xlsx', engine='xlsxwriter')
-processedCodes = pd.DataFrame(processedCodes).T
-processedCodes.to_excel(writer, sheet_name='sheet1')
+writer = pd.ExcelWriter('static/data/yuride_postalcodes_filtered.xlsx', engine='openpyxl')
+procCodes = pd.DataFrame(procCodes).T
+procCodes.to_excel(writer, sheet_name='Postal Details')
+
+fsaCodes = pd.DataFrame(fsaCodes)
+fsaCodes.to_excel(writer, sheet_name='FSA ONLY')
+
+scratchCodes = pd.DataFrame(scratchCodes)
+scratchCodes.to_excel(writer, sheet_name='Scratch Sheet')
 writer.save()
+writer.close()
 
-print(count, emptyCount, count + emptyCount, pNotFound)
+print(pCount, emptyCount, pCount + emptyCount + len(scratchCodes) + len(fsaCodes), pNotFound)
