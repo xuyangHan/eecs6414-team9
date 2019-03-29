@@ -1,0 +1,215 @@
+,lat,long,name,location,rating
+0,43.7751785,-79.4940601,The Islands Caribbean Restaurant,York University,4.4
+1,43.7741629,-79.5022522,Shopsy's Sports Grill .,York University,3.8
+2,43.7819148,-79.4914024,Sandra’s Italian Kitchen,York University,4.7
+3,43.7738555,-79.4920539,Bamiyan Kabob,York University,4.3
+4,43.7701903,-79.5006502,Amaya Express,York University,4.1
+5,43.7695944,-79.5018918,San Francesco Foods,York University,4
+6,43.7818596,-79.4917008,Genji Sushi,York University,4.6
+7,43.782365,-79.489289,Caspi Restaurant,York University,4.8
+8,43.7740219,-79.5028783,Jimmy the Greek,York University,4.2
+9,43.7699667,-79.501867,Basil Box,York University,4.1
+10,43.7821908,-79.4902766,Dormet Grill Kabob And Shawarma,York University,4.5
+11,43.7738289,-79.4920948,Osmow's - 4205 Keele St,York University,4.3
+12,43.7585909,-79.4662136,Hurry Curry | Indian Restaurant,York University,3.7
+13,43.7644847,-79.4893248,Falafel Express Restaurant,York University,4.5
+14,43.7822044,-79.4904413,Sunnyside Grill Steeles,York University,4.5
+15,43.7551195,-79.4685757,Home Sweet Home,York University,4.7
+16,43.7740864,-79.5026567,Pagoda Tree,York University,1.7
+17,43.7730345,-79.498331,Schulich Executive Dining Room,York University,4.3
+18,43.7647178,-79.4758955,Chicken place,York University,4.9
+19,43.7729717,-79.5048328,Central Square Cafeteria,York University,3.5
+20,43.8288104,-79.5491021,"Ay Caramba, Eh!",Vaughan Corporate,4.8
+21,43.7797773,-79.5709676,Romano's Restaurant,Vaughan Corporate,4.4
+22,43.789337,-79.587131,Memphis BBQ,Vaughan Corporate,4.7
+23,43.8142718,-79.5524147,Mandarin Restaurant,Vaughan Corporate,4.1
+24,43.8061207,-79.5508368,Nove Ristorante,Vaughan Corporate,4.4
+25,43.782247,-79.573993,That's Italian Ristorante,Vaughan Corporate,4.3
+26,43.826748,-79.555866,Zizi Trattoria,Vaughan Corporate,4.4
+27,43.7919048,-79.5470617,The Burger's Priest,Vaughan Corporate,4.3
+28,43.807733,-79.549945,Ricci's Pizzeria & Sandwich Shoppe,Vaughan Corporate,4.4
+29,43.814172,-79.5242773,Anna Maria Trattoria,Vaughan Corporate,4.6
+30,43.786118,-79.5487042,Bâton Rouge Steakhouse & Bar,Vaughan Corporate,4.2
+31,43.7851663,-79.5445866,Symposium Cafe Restaurant & Lounge,Vaughan Corporate,4.2
+32,43.787249,-79.5440549,Moxie's Grill & Bar,Vaughan Corporate,4.1
+33,43.8546069,-79.5145943,Farro Ristorante,Vaughan Corporate,4.5
+34,43.7862525,-79.5570954,Siamese Thai Cuisine,Vaughan Corporate,4.2
+35,43.7855153,-79.5572356,Bocconcino Restaurant,Vaughan Corporate,4.6
+36,43.7868109,-79.5448221,Jack Astor's Bar & Grill,Vaughan Corporate,3.9
+37,43.7977002,-79.5487953,The Lobster Trap Restaurant,Vaughan Corporate,4.2
+38,43.8305909,-79.5404786,Astoria Shish Kebob House,Vaughan Corporate,4.3
+39,43.784245,-79.600286,La Torteria,Vaughan Corporate,4.6
+40,43.7529636,-79.5421948,"De Karibbean King Roti Shop, Bakery & Grocery",Humber Summit,4.8
+41,43.7598992,-79.5710679,Peppers Caribbean Restaurant,Humber Summit,4.6
+42,43.7580979,-79.5697824,Las Calenas Restaurant,Humber Summit,4.8
+43,43.770967,-79.541172,Garden Of Eden Sport Bar & Restaurant Ltd.,Humber Summit,4.5
+44,43.7656022,-79.5571057,Barmakey Restaurant & Bar,Humber Summit,4.7
+45,43.7511178,-79.5522393,Dunia Restaurant and Bar,Humber Summit,4.1
+46,43.7530295,-79.5422662,Las Fronteras Restaurant,Humber Summit,4.3
+47,43.7709138,-79.541383,Flaming Star Restaurant,Humber Summit,4.5
+48,43.7511277,-79.5487929,De Place,Humber Summit,4.3
+49,43.7693252,-79.549196,Ali Baba's Middle Eastern Cuisine,Humber Summit,4.3
+50,43.7573901,-79.5377836,Globe Meats Fresh Market + Grill,Humber Summit,4.3
+51,43.7688705,-79.5665761,Artigiano Ristorante,Humber Summit,4.6
+52,43.7489351,-79.5606722,Punjabi Taste,Humber Summit,3.8
+53,43.7502034,-79.5528898,Mr. Sub,Humber Summit,4
+54,43.7671683,-79.5644807,La Fonte Trattoria,Humber Summit,4.7
+55,43.748855,-79.5592935,Fritou,Humber Summit,4.2
+56,43.770181,-79.551298,La Empanada Cafe,Humber Summit,4.6
+57,43.7490431,-79.559322,Wing Machine,Humber Summit,3.4
+58,43.7503539,-79.5519187,Hakka No.1 Restaurant,Humber Summit,3.7
+59,43.7576965,-79.5697894,Pizza Hub,Humber Summit,4
+60,45.0468771,-78.6969195,Rhubarb,Emergy,4.5
+61,43.6541714,-79.4015556,Pow Wow Cafe,Emergy,4.7
+62,44.3033049,-78.3213282,Soupcon,Emergy,4.9
+63,44.9273722,-76.541434,Wheelers Maple Products,Emergy,4.8
+64,45.0188012,-74.7099516,Roma's,Emergy,4.4
+65,43.681489,-79.400025,Scaramouche Restaurant,Emergy,4.7
+66,46.5004983,-81.0052384,Tucos Taco Lounge,Emergy,4.7
+67,44.3030414,-78.3244554,Two Dishes Cookshop,Emergy,4.6
+68,49.765672,-94.520799,Subway,Emergy,4.5
+69,50.256169,-96.061565,Subway,Emergy,3.7
+70,43.2400056,-79.848625,Papa Leo's,Emergy,4.6
+71,43.257261,-79.8671654,The Mule,Emergy,4.5
+72,45.4102103,-75.6926866,Wilf & Ada's,Emergy,4.6
+73,42.9605572,-81.2615997,Craft Farmacy,Emergy,4.6
+74,43.665107,-79.410831,Insomnia,Emergy,4.3
+75,43.4290848,-80.4327174,Del's Enoteca Pizzeria,Emergy,4.5
+76,42.9861679,-81.2507819,Garlic's Of London,Emergy,4.4
+77,43.7829008,-79.2527797,Cora,Emergy,4.2
+78,43.6431552,-79.4245711,The Drake Hotel,Emergy,4.3
+79,43.2572441,-79.867082,The Diplomat,Emergy,4.4
+80,43.752088,-79.5154942,Pho Mi Viet Hoa,Jane and Finch,4.4
+81,43.773533,-79.523283,Tasty Pizza & More,Jane and Finch,4.7
+82,43.7673123,-79.5151192,Yummy Chicken And Burger,Jane and Finch,4.6
+83,43.747776,-79.523578,Pizza Wings & More,Jane and Finch,4.8
+84,43.7409802,-79.51308,Da Nang Restaurant,Jane and Finch,4.3
+85,43.772999,-79.531267,La Luce Ristorante,Jane and Finch,4.4
+86,43.7562204,-79.5180336,Banh Mi Nhu Lan,Jane and Finch,4.2
+87,43.745687,-79.4874603,Mumtaz Grill Restaurant,Jane and Finch,4.5
+88,43.7738205,-79.5271608,Subway,Jane and Finch,4.4
+89,43.7562495,-79.5182713,Subway,Jane and Finch,3.5
+90,43.7419173,-79.5143162,Gustitos de mi Tierra,Jane and Finch,4
+91,43.7517319,-79.5269531,Aldo's Restaurant,Jane and Finch,4.1
+92,43.7739584,-79.5315803,La Campagna Italian Cuisine And Catering,Jane and Finch,4.8
+93,43.7672547,-79.5153795,Driftwood Fish & Chips,Jane and Finch,4.4
+94,43.7523676,-79.5368973,Karahi Point,Jane and Finch,4.6
+95,43.7609607,-79.5298076,Salam Social Club,Jane and Finch,4.3
+96,43.7391523,-79.5260877,Capri Bagels & Buns Inc,Jane and Finch,4.2
+97,43.756308,-79.5183644,Yummy Wok,Jane and Finch,4.2
+98,43.7561432,-79.5155989,Taco Bell,Jane and Finch,3.8
+99,43.778846,-79.3638457,Jerusalem Restaurant,North York,4.1
+100,43.7512768,-79.4573874,Le Montmartre,North York,4.7
+101,43.7306433,-79.4680106,Mustafa Turkish Kebap - Pide - Doner,North York,4.3
+102,43.7468226,-79.4077734,Auberge du Pommier,North York,4.5
+103,43.7603895,-79.4098082,Kinka Izakaya,North York,4.2
+104,43.72667,-79.3421345,Sorento Restaurant - Italian & Mediterranean Cuisine,North York,4
+105,43.7712472,-79.4131377,Symposium Cafe Restaurant & Lounge,North York,3.9
+106,43.7638974,-79.4111753,Union Social Eatery,North York,4.1
+107,43.7639835,-79.4113432,Sushi Moto,North York,4.3
+108,43.7367475,-79.4385683,THE 5TH TASTE SUSHI RESTAURANT,North York,4.6
+109,43.7714531,-79.4131762,Ajisen Ramen,North York,4.2
+110,43.772727,-79.414129,Mezza Notte Trattoria,North York,4.1
+111,43.7625115,-79.4114746,Nomé Izakaya,North York,4.4
+112,43.774327,-79.442412,Belle Bar and Restaurant,North York,4.4
+113,43.7728924,-79.3329637,Lara's Restaurant,North York,4.2
+114,43.7686316,-79.4743435,Taj Restaurant,North York,4.5
+115,43.7779901,-79.3440914,Moxie's Grill & Bar,North York,4
+116,43.760144,-79.412026,Allwyn's,North York,4.4
+117,43.7181913,-79.4297058,Europe Bar And Restaurant,North York,4.4
+118,45.3912387,-75.7560125,Baker Street Cafe,William Baker,4.6
+119,43.4608324,-80.5226669,Red House,William Baker,4.5
+120,43.5477458,-80.2522789,Baker Street Station,William Baker,4.6
+121,43.6814669,-79.4260741,Baker and Scone,William Baker,4.6
+122,43.705753,-79.3129404,Jawny Bakers Restaurant,William Baker,4.2
+123,43.6557832,-79.3819379,JOEY Eaton Centre,William Baker,4.2
+124,43.6514635,-79.3794701,Richmond Station,William Baker,4.7
+125,43.0912922,-79.0728416,Fallsview Buffet Restaurant,William Baker,3.6
+126,43.4796615,-80.4842772,The Lancaster Smokehouse,William Baker,4.6
+127,43.6485798,-79.3938789,Ricarda's Toronto,William Baker,4.3
+128,43.6538059,-79.4014765,Grey Gardens,William Baker,4.6
+129,43.262644,-79.866416,Green Bar,William Baker,4.4
+130,45.1377058,-76.14288,The Good Food Company,William Baker,4.5
+131,43.4478962,-79.6656055,Ricarda's Oakville,William Baker,4.3
+132,43.6426781,-79.3869975,360 The Restaurant at the CN Tower,William Baker,4.1
+133,45.3995933,-75.6844249,JOEY Lansdowne,William Baker,4.4
+134,43.7339894,-79.3445733,JOEY Don mills,William Baker,4
+135,43.8675853,-79.2890312,JOEY Markville,William Baker,4.2
+136,45.4265141,-75.6905459,JOEY Rideau,William Baker,4.3
+137,43.6129091,-79.5564469,JOEY Sherway,William Baker,4.2
+138,43.7327428,-79.4831309,Downsview Restaurant,Downsview,4.5
+139,43.7271331,-79.4824711,Best Istanbul Restaurant,Downsview,4.3
+140,43.7265871,-79.4835775,Hung Long Restaurant,Downsview,4.3
+141,43.7307281,-79.4678245,La Traviata,Downsview,4.5
+142,43.7257886,-79.482373,Euro Shawarma,Downsview,4.5
+143,43.7301765,-79.469739,Maya,Downsview,4.5
+144,43.7304947,-79.4663378,Chef 47,Downsview,4.7
+145,43.7316081,-79.4587942,CHITO's Pizza and Mediterranean Restaurant,Downsview,4.5
+146,43.7305266,-79.4688145,Mastros,Downsview,4.3
+147,43.7198429,-79.5121734,La Guanaquita,Downsview,4.2
+148,43.7309422,-79.4668097,Buzz Buzz Pizza,Downsview,4.6
+149,43.7284241,-79.4799473,Peter G's Bar And Grill,Downsview,4.4
+150,43.731212,-79.4652377,La Rosa Chilena,Downsview,4.2
+151,43.7231236,-79.5095726,Pizza Nova,Downsview,4.3
+152,43.7265166,-79.4803756,Get & Go Burrito,Downsview,4.3
+153,43.7271959,-79.4824978,Costa Verde B.B.Q. Chicken Inc.,Downsview,4.3
+154,43.7193882,-79.5119328,Pho con Bo,Downsview,4.3
+155,43.7505694,-79.7264123,Sahib Jee Cuisine,North Park,4
+156,43.7340169,-79.7446888,Mackay Pizza,North Park,4.2
+157,43.1672989,-80.2656395,Lookout Sports Lounge,North Park,2.8
+158,43.736098,-79.307905,Jatujak : Thai Street Style Food,North Park,4.4
+159,43.7871139,-79.3290842,Aoyama,North Park,4.4
+160,43.458591,-80.484108,PUBLIC Kitchen & Bar,North Park,4.6
+161,43.7295857,-79.7493495,Popular Pizza,North Park,3.4
+162,43.7093346,-79.3986467,Grazie Ristorante,North Park,4.4
+163,44.539111,-79.20851,Lanterna Ristorante North,North Park,4.9
+164,43.7102105,-79.3989116,La Vecchia Restaurant,North Park,4.3
+165,43.7492738,-79.7278501,Golden Palace Restaurant,North Park,3.7
+166,43.714021,-79.3349663,Osaka Sushi ???????,North Park,4.1
+167,45.3744524,-80.2989232,Gilly's Snug Harbour Restaurant & Marine,North Park,4.6
+168,43.728489,-79.431551,Milk ‘N Honey,North Park,4.6
+169,43.735238,-79.420083,Issmi Japanese Restaurant,North Park,4.4
+170,43.7309565,-79.3057989,Armenian Kitchen Restaurant,North Park,4.4
+171,43.7288847,-79.4029127,Trio Ristorante,North Park,4.2
+172,43.7292052,-79.4318609,Tov-Li South,North Park,4.2
+173,46.2580261,-79.386391,Beef n' Brand,North Park,4.1
+174,43.7303917,-79.4667736,La Pupusa Loka,Winston Park,3.9
+175,43.5089643,-79.6664146,Bâton Rouge Steakhouse & Bar,Winston Park,4.3
+176,43.5101679,-79.6666057,Scaddabush Italian Kitchen & Bar,Winston Park,4
+177,43.5105155,-79.6692869,Trattoria Timone Ristorante,Winston Park,4.3
+178,43.5108202,-79.6680233,K&B Sushi,Winston Park,3.9
+179,43.5106782,-79.667695,East Side Mario's Oakville (Winston Park),Winston Park,3.5
+180,43.7075529,-79.4430345,Pizza Nova,Winston Park,4
+181,43.5169054,-79.6872131,Chipotle Mexican Grill,Winston Park,4.1
+182,43.5106551,-79.6688024,Souvlaki Hut,Winston Park,3.8
+183,43.726964,-79.480364,Swiss Chalet Rotisserie & Grill,Winston Park,3.8
+184,43.4991677,-79.6502461,Chef's Door,Winston Park,4.3
+185,43.5244646,-79.6846305,Burrito Boyz,Winston Park,4.1
+186,43.7325824,-79.4583675,FRESHII X SHELL,Winston Park,0
+187,43.7315655,-79.4190574,Freshii,Winston Park,4.2
+188,43.7208577,-79.456691,Pizza Nova,Winston Park,4
+189,43.5093909,-79.6684809,Wild Wing,Winston Park,3.5
+190,43.7168319,-79.4567789,Swiss Chalet Rotisserie & Grill,Winston Park,3.7
+191,43.7103238,-79.3625921,Sunset Grill,Winston Park,4.3
+192,42.8814164,-79.904111,Fisherville Hotel & Tavern,Fishervill,4.5
+193,42.9018244,-79.9929112,Jay's Motel and Restaurant,Fishervill,4.5
+194,43.6764973,-79.7192115,Caravan Kabob House,Streeles Corners,4.4
+195,43.7150006,-79.6781806,MexiCados Burritos & Bowls Brampton,Streeles Corners,4.6
+196,43.7490971,-79.6975926,Food Fight BBQ,Streeles Corners,4.4
+197,43.7491313,-79.6985739,Ital Sandwiches,Streeles Corners,4.5
+198,43.7194782,-79.6372034,Biryani & snacks corner,Streeles Corners,4.2
+199,43.6940823,-79.7017281,Wally's On Steeles,Streeles Corners,4.1
+200,43.757289,-79.702815,Nancy Trattoria Restaurant,Streeles Corners,4.9
+201,43.7481857,-79.6982112,Onyxx Sports Bar & Grill,Streeles Corners,4.3
+202,43.7477129,-79.6989112,Pho 123,Streeles Corners,3.9
+203,43.7847739,-79.6258811,Sunset Grill,Streeles Corners,4
+204,43.726828,-79.666284,Arooba Burgers & Cafe,Streeles Corners,4.6
+205,43.6886636,-79.7409322,Yarl Dosa Corner Restaurant,Streeles Corners,4.1
+206,43.7102377,-79.6853123,"G T Restaurant & Bar - Caribbean, Guyanese Style Food",Streeles Corners,4.3
+207,43.6636721,-79.7323009,GET GRILL,Streeles Corners,4.5
+208,43.640789,-79.7955368,Terrace On The Green,Streeles Corners,4.4
+209,43.7111511,-79.6817673,Shawarma Falafel & Bakery,Streeles Corners,4.7
+210,43.6788191,-79.7201156,Boston Pizza,Streeles Corners,3.8
+211,43.7240011,-79.6937533,Fusion Halal Cuisine,Streeles Corners,4.6
+212,43.6444584,-79.7565323,Osmow's,Streeles Corners,4.1
+213,43.7354017,-79.6506948,Alima's Roti and Pastry,Streeles Corners,4.5
