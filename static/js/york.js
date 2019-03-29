@@ -12,7 +12,7 @@ let yorkU_data = {
 };
 
 let dashboard_data = [yorkU_data];
-Plotly.d3.json('static/data/map.geojson', function (torontojson) {
+// Plotly.d3.json('static/data/map.geojson', function (torontojson) {
     Plotly.d3.json('static/data/york.geojson', function (yorkjson) {
 
         let layout = {
@@ -57,4 +57,4 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
             mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg'
         });
     });
-});
+// });
