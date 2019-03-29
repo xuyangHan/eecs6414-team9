@@ -115,7 +115,7 @@ Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
 });
 
 
-// Plotly.d3.json('static/data/york.geojson', function (torontojson) {
+Plotly.d3.json('static/data/york.geojson', function (torontojson) {
     Plotly.d3.csv('static/data/all_unique_restaurants.CSV', function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
@@ -144,23 +144,23 @@ Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
 
         dashboard_data.push(rest_data);
 
-        // let data_layers = [];
-        // for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
-        //     let source = torontojson["features"][feature_num];
-        //     let r_value = 500-source["score"] * 255;
-        //     let g_value =   500-source["score"] *255;
-        //     let b_value = 255 ;
-        //     let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.3)';
-        //     // let color = 'rgba(255, 200, 200, 0.5)';
-        //     data_layers.push(
-        //         {
-        //             sourcetype: 'geojson',
-        //             source: source,
-        //             type: 'fill',
-        //             color: color,
-        //         }
-        //     );
-        // }
+        let data_layers = [];
+        for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
+            let source = torontojson["features"][feature_num];
+            let r_value = 255;
+            let g_value = 400-source["students"] * 5;
+            let b_value = 400-source["students"] * 5 ;
+            let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.6)';
+            // let color = 'rgba(255, 200, 200, 0.5)';
+            data_layers.push(
+                {
+                    sourcetype: 'geojson',
+                    source: source,
+                    type: 'fill',
+                    color: color,
+                }
+            );
+        }
 
         let layout = {
             autosize: true,
@@ -182,7 +182,7 @@ Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
                 },
                 // style: 'light',
                 zoom: 12,
-                // layers: data_layers,
+                layers: data_layers,
             }
         };
 
@@ -194,4 +194,4 @@ Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
     });
 
 
-// });
+});
