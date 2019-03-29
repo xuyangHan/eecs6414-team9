@@ -3,7 +3,7 @@ import pandas as pd
 from shapely.geometry import shape, Point
 
 # open geojson
-with open('static/data/map.geojson') as json_file:
+with open('static/data/york.geojson') as json_file:
     data = json.load(json_file)
     print(len(data['features']))
 
