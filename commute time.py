@@ -4,7 +4,7 @@ import json
 from shapely.geometry import shape, Point
 
 # open geojson
-with open('static/data/map.geojson') as json_file:
+with open('static/data/york.geojson') as json_file:
     geo_data = json.load(json_file)
     print(len(geo_data['features']))
 
@@ -32,7 +32,7 @@ for feature in geo_data['features']:
 
 
 # write new json
-with open('static/data/map.geojson', 'w') as outfile:
+with open('static/data/york.geojson', 'w') as outfile:
     json.dump(geo_data, outfile)
 
 

@@ -14,7 +14,7 @@ let yorkU_data = {
 let dashboard_data = [yorkU_data];
 
 
-Plotly.d3.csv('static/data/example.CSV', function (err, rows) {
+Plotly.d3.csv('static/data/yuride_postalcodes_filtered_latlng_only.CSV', function (err, rows) {
     function unpack(rows, key) {
         return rows.map(function (row) {
             return row[key];
@@ -34,18 +34,18 @@ Plotly.d3.csv('static/data/example.CSV', function (err, rows) {
         {
             type: 'scattermapbox',
             mode: 'markers',
-            lon: unpack(rows, 'long'),
-            lat: unpack(rows, 'lat'),
-            text: unpack(rows, 'commute_time'),
+            lon: unpack(rows, 'Longitude'),
+            lat: unpack(rows, 'Latitude'),
+            text: unpack(rows, 'Place Name'),
             name: 'students',
             marker: {
-                color: unpack(rows, 'commute_time_min'),
+                color: unpack(rows, 'Count'),
                 colorscale: scl,
                 cmin: 0,
-                cmax: 30,
-                reversescale: false,
+                cmax: 473,
+                reversescale: true,
                 size: 8,
-                opacity: 0.8,
+                opacity: 0.5,
             }
         };
 
@@ -54,7 +54,7 @@ Plotly.d3.csv('static/data/example.CSV', function (err, rows) {
 });
 
 
-Plotly.d3.csv('static/data/fitness.CSV', function (err, rows) {
+Plotly.d3.csv('static/data/all_unique_fitness.CSV', function (err, rows) {
     function unpack(rows, key) {
         return rows.map(function (row) {
             return row[key];
@@ -71,12 +71,12 @@ Plotly.d3.csv('static/data/fitness.CSV', function (err, rows) {
             name: 'fitness',
             marker: {
                 color: unpack(rows, 'rating'),
-                colorscale: 'Reds',
+                colorscale: 'Greens',
                 cmin: 0,
                 cmax: 5,
                 reversescale: false,
                 size: 10,
-                opacity: 0.9,
+                opacity: 1,
             }
         };
 
@@ -84,7 +84,7 @@ Plotly.d3.csv('static/data/fitness.CSV', function (err, rows) {
 
 });
 
-Plotly.d3.csv('static/data/supermarkets.CSV', function (err, rows) {
+Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
     function unpack(rows, key) {
         return rows.map(function (row) {
             return row[key];
@@ -106,7 +106,7 @@ Plotly.d3.csv('static/data/supermarkets.CSV', function (err, rows) {
                 cmax: 5,
                 reversescale: false,
                 size: 10,
-                opacity: 0.9,
+                opacity: 1,
             }
         };
 
@@ -115,8 +115,8 @@ Plotly.d3.csv('static/data/supermarkets.CSV', function (err, rows) {
 });
 
 
-Plotly.d3.json('static/data/map.geojson', function (torontojson) {
-    Plotly.d3.csv('static/data/restaurants.CSV', function (err, rows) {
+Plotly.d3.json('static/data/york.geojson', function (torontojson) {
+    Plotly.d3.csv('static/data/all_unique_restaurants.CSV', function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
                 return row[key];
@@ -138,7 +138,7 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
                     cmax: 5,
                     reversescale: false,
                     size: 10,
-                    opacity: 0.9,
+                    opacity: 1,
                 }
             };
 
@@ -148,9 +148,10 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
         for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
             let source = torontojson["features"][feature_num];
             let r_value = 255;
-            let g_value = 255-source["score"] * 300 ;
-            let b_value = 255-source["score"] * 300 ;
-            let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.5)';
+            let g_value = 400-source["students"] * 5;
+            let b_value = 400-source["students"] * 5 ;
+            let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.6)';
+            // let color = 'rgba(255, 200, 200, 0.5)';
             data_layers.push(
                 {
                     sourcetype: 'geojson',
