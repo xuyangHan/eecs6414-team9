@@ -3,90 +3,122 @@ import math
 import re
 import requests
 
-"""
 def add_to_fsa(fsa):
     if fsa.isalnum():
-        fsaCodes[fsa] = fsaCodes[fsa] + 1
+        if fsa in allFsaCodes:
+            allFsaCodes[fsa] = allFsaCodes[fsa] + 1
+        else:
+            allFsaCodes[fsa] = 1
         return True
     return False
-"""
 
 # read all postal codes from scratch YURide file
-yuData = pd.read_excel(r'static/data/yuride_postalcodes.xlsx') #sheetname='Sheet1', header=0, converters={'Affiliation':str, 'Postal Code':str})
+yuRidePC = pd.read_excel(r'static/data/yuride_postalcodes.xlsx') #sheetname='Sheet1', header=0, converters={'Affiliation':str, 'Postal Code':str})
 
 # read all postal codes from Fusion Tables as reference data
-cPostalCodes = pd.read_csv(r'static/data/canadianpostalcodes.csv')
+fusionTablePC = pd.read_csv(r'static/data/canadianpostalcodes.csv')
 #cPostalCodes = pd.read_excel(r'static/data/canadianpostalcodes.xlsx')
 
 # delete/drop un-necessary columns
-del cPostalCodes['FSA1']
-del cPostalCodes['FSA-Province']
-del cPostalCodes['AreaType']
+del fusionTablePC['FSA1']
+del fusionTablePC['FSA-Province']
+del fusionTablePC['AreaType']
 
 # variables for filtering postal codes from YURide file
-pCount = 0
+pcCount = 0
 emptyCount = 0
-procCodes = {'PostalCode': {'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': 'None'}}
-pCodesNotFound = []
-scratchCodes = []
-fsaCodes = []
+uniquePCData = {} #{'PostalCode': {'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': ''}
+filteredPCData = []  #  {'Affiliation': '', 'PostalCode': ''}
+detailedPCData = []  #{'PostalCode': '', 'FSA': '', 'Latitude': 0, 'Longitude': 0,'Place Name': '', 'Affiliation': ''}
+skippedPC = [] # postalcodes not found in Fusion Table
+scrapCodes = [] # scrapcodes like sdfsdfesd
+scrappyPC = [] # FSA only
+allFsaCodes = {}
 
 # process each postal codes, filter them for considerable data frame
-for pCode in yuData['Postal Code']:
+for affiliation, pCode in yuRidePC.values:
+#for pCode in yuData['PostalCode']:
+
     if type(pCode) is float:
         if math.isnan(pCode):
             emptyCount = emptyCount + 1
         else:
-            scratchCodes.append(pCode)
+            scrapCodes.append(pCode)
     elif type(pCode) is int:
-        scratchCodes.append(pCode)
+        scrapCodes.append(pCode)
     else:
         pCode = pCode.replace(" ", "").replace("-", "").replace(",", "")\
                     .replace("'", "").replace("?", "").upper()
         #pCode = re.sub(r'\W+', '', pCode)
 
         if len(pCode) == 3:
-            fsaCodes.append(pCode)
+            scrappyPC.append(pCode)
+            add_to_fsa(pCode)
         elif len(pCode) != 6:
             #add_to_fsa(pCode[:3])
-            scratchCodes.append(pCode)
+            scrapCodes.append(pCode)
         else:
-            pCount = pCount + 1
-            #add_to_fsa(pCode[:3])
-            if pCode in procCodes:
-                procCodes[pCode]['Count'] = procCodes[pCode]['Count'] + 1
+            pcCount = pcCount + 1
+            add_to_fsa(pCode[:3])
+
+            filteredPCData.append({'Affiliation': affiliation, 'PostalCode': pCode})
+
+            if pCode in uniquePCData:
+                uniquePCData[pCode]['Count'] = uniquePCData[pCode]['Count'] + 1
             else:
-                procCodes[pCode] = {'Latitude': 0, 'Longitude': 0, 'Count': 1, 'Place Name': 'None'}
+                uniquePCData[pCode] = {'FSA': pCode[:3], 'Latitude': 0, 'Longitude': 0, 'Count': 1, 'Place Name': 'None'}
 
 # add details to unique postal code which appeared X times by filtering original data
-for pCode, pDetails in procCodes.items():
-    if (cPostalCodes['PostalCode'] == pCode).any():
-        index = cPostalCodes['PostalCode'][cPostalCodes['PostalCode'] == pCode].index[0]
+for pCode, pDetails in uniquePCData.items():
+    if (fusionTablePC['PostalCode'] == pCode).any():
+        index = fusionTablePC['PostalCode'][fusionTablePC['PostalCode'] == pCode].index[0]
         print(pCode, index)
-        pDetails['Latitude'] = cPostalCodes['Latitude'][index]
-        pDetails['Longitude'] = cPostalCodes['Longitude'][index]
-        pDetails['Place Name'] = cPostalCodes['Place Name'][index]
+        pDetails['Latitude'] = fusionTablePC['Latitude'][index]
+        pDetails['Longitude'] = fusionTablePC['Longitude'][index]
+        pDetails['Place Name'] = fusionTablePC['Place Name'][index]
     else:
-        del procCodes[pCode]
-        pCodesNotFound.append(pCode)
+        del uniquePCData[pCode]
+        skippedPC.append(pCode)
         ## condition for small subset test ##
-        #if len(pCodesNotFound) >= 3:
+        #if len(skippedPC) >= 3:
         #    break
 
+counter = 0
+# add details to detailed postal code from filtered original data and populated uniquePostal codes data
+for pcData in filteredPCData:
+    if pcData['PostalCode'] in uniquePCData:
+        counter = counter + 1
+        data = uniquePCData[pcData['PostalCode']]
+        detailedPCData.append({'PostalCode': pcData['PostalCode'], 'FSA': pcData['PostalCode'][:3],
+                               'Latitude': data['Latitude'], 'Longitude': data['Longitude'],
+                               'Place Name': data['Place Name'], 'Affiliation': pcData['Affiliation']})
+
+#print(counter, len(uniquePCData))
+
 writer = pd.ExcelWriter('static/data/yuride_postalcodes_filtered.xlsx', engine='openpyxl')
-procCodes = pd.DataFrame(procCodes).T
-procCodes.to_excel(writer, sheet_name='Postal Details')
+detailedPCData = pd.DataFrame(detailedPCData)
+detailedPCData.to_excel(writer, sheet_name='Detailed PC')
 
-pCodesNotFound = pd.DataFrame(pCodesNotFound)
-pCodesNotFound.to_excel(writer, sheet_name='Postal Details Not Found')
+uniquePCData = pd.DataFrame(uniquePCData).T
+uniquePCData.to_excel(writer, sheet_name='Unique PC')
 
-fsaCodes = pd.DataFrame(fsaCodes)
-fsaCodes.to_excel(writer, sheet_name='FSA ONLY')
+skippedPC = pd.DataFrame(skippedPC)
+skippedPC.to_excel(writer, sheet_name='Missing PC')
 
-scratchCodes = pd.DataFrame(scratchCodes)
-scratchCodes.to_excel(writer, sheet_name='Scratch Sheet')
+allFsaCodes = pd.DataFrame(allFsaCodes, index=[0]).T
+allFsaCodes.to_excel(writer, sheet_name='All FSA')
+
+scrappyPC = pd.DataFrame(scrappyPC)
+scrappyPC.to_excel(writer, sheet_name='Scrap FSA')
+
+scrapCodes = pd.DataFrame(scrapCodes)
+scrapCodes.to_excel(writer, sheet_name='Scrap Sheet')
+
+filteredPCData = pd.DataFrame(filteredPCData)
+filteredPCData.to_excel(writer, sheet_name='Filtered YURide Data')
+
 writer.save()
 writer.close()
 
-print(pCount, emptyCount, pCount + emptyCount + len(scratchCodes) + len(fsaCodes), len(pCodesNotFound))
+print(pcCount, emptyCount, pcCount + emptyCount + len(scrapCodes) + len(scrappyPC), len(skippedPC), len(allFsaCodes))
 
