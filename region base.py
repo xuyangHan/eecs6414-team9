@@ -1,9 +1,10 @@
 import json
 import pandas as pd
 from shapely.geometry import shape, Point
+import xlsxwriter
 
 # open geojson
-with open('static/data/york.geojson') as json_file:
+with open('static/data/new_gta_geojson') as json_file:
     data = json.load(json_file)
     print(len(data['features']))
 
@@ -12,10 +13,10 @@ name = []
 cent_lat = []
 cent_long = []
 num_students = []
-supermarkets = []
-fitness = []
+# supermarkets = []
+# fitness = []
 commute_time = []
-restaurants = []
+# restaurants = []
 
 i = 1
 for feature in data['features']:
@@ -25,9 +26,9 @@ for feature in data['features']:
     cent_lat.append(feature['center']['lat'])
     num_students.append(feature['students'])
     commute_time.append(feature['commute_time'])
-    supermarkets.append(feature['supermarkets'])
-    fitness.append(feature['fitness'])
-    restaurants.append(feature['restaurants'])
+    # supermarkets.append(feature['supermarkets'])
+    # fitness.append(feature['fitness'])
+    # restaurants.append(feature['restaurants'])
 
 
 # some codes to generate a csv file containing lat, long, name and rating
@@ -38,11 +39,11 @@ df['cent_lat'] = cent_lat
 df['cent_long'] = cent_long
 df['num_students'] = num_students
 df['commute_time'] = commute_time
-df['supermarkets'] = supermarkets
-df['fitness'] = fitness
-df['restaurants'] = restaurants
+# df['supermarkets'] = supermarkets
+# df['fitness'] = fitness
+# df['restaurants'] = restaurants
 
-writer = pd.ExcelWriter('static/data/final.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('static/data/new_final.xlsx', engine='xlsxwriter')
 df.to_excel(writer, sheet_name='sheet1')
 writer.save()
 
