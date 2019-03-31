@@ -115,7 +115,7 @@ Plotly.d3.csv('static/data/all_unique_supermarkets.CSV', function (err, rows) {
 });
 
 
-Plotly.d3.json('static/data/york.geojson', function (torontojson) {
+Plotly.d3.json('static/data/new_gta_geojson', function (torontojson) {
     Plotly.d3.csv('static/data/all_unique_restaurants.CSV', function (err, rows) {
         function unpack(rows, key) {
             return rows.map(function (row) {
@@ -148,8 +148,8 @@ Plotly.d3.json('static/data/york.geojson', function (torontojson) {
         for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
             let source = torontojson["features"][feature_num];
             let r_value = 255;
-            let g_value = 400-source["students"] * 5;
-            let b_value = 400-source["students"] * 5 ;
+            let g_value = 300- source["commute_time"] * 300/4000;
+            let b_value = 300- source["commute_time"] * 300/4000;
             let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.6)';
             // let color = 'rgba(255, 200, 200, 0.5)';
             data_layers.push(
