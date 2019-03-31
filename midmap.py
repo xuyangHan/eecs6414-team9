@@ -2,12 +2,13 @@ import json
 import pandas as pd
 from shapely.geometry import shape, Point
 
-all_points = pd.read_csv('static/data/mid.CSV')
+all_points = pd.read_csv('static/data/yuride_postalcodes_filtered_latlng_only.CSV')
 
 # open geojson
-with open('static/data/york.geojson') as json_file:
+with open('static/data/gta_geojson') as json_file:
     data = json.load(json_file)
-    print(len(data['features']))
+    totalnum = len(data['features'])
+    print(totalnum)
 
 # Count = []
 # Latitude = []
@@ -17,9 +18,9 @@ with open('static/data/york.geojson') as json_file:
 i = 0
 for feature in data['features']:
     polygon = shape(feature['geometry'])
+    print("No. " + str(i) + ', Process: ' + str(i/totalnum))
+    i += 1
     for index, row in all_points.iterrows():
-        print(i)
-        i += 1
         p = Point(row['Longitude'], row['Latitude'])
         if polygon.contains(p):
             # Count.append(row['Count'])
@@ -40,7 +41,7 @@ for feature in data['features']:
 # writer.save()
 
 # write new json
-with open('static/data/york.geojson', 'w') as outfile:
+with open('static/data/new_gta_geojson', 'w') as outfile:
     json.dump(data, outfile)
 
 
