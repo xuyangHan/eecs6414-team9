@@ -3,7 +3,7 @@ from shapely.geometry import shape, Point
 import requests
 
 # open geojson
-with open('static/data/york.geojson') as json_file:
+with open('static/data/gta_geojson.geojson') as json_file:
     data = json.load(json_file)
     print(len(data['features']))
 
@@ -35,16 +35,17 @@ while i < len(data['features']):
     #     i += 1
 
     feature.update({'students': 0})
-    feature.update({'supermarkets': 0})
-    feature.update({'fitness': 0})
-    feature.update({'restaurants': 0})
+    # feature.update({'supermarkets': 0})
+    # feature.update({'fitness': 0})
+    # feature.update({'restaurants': 0})
     center = {'lat': cent_lat, 'long': cent_long}
     feature.update({'center': center})
     i += 1
+    print(i)
 
 
 # write new json
-with open('static/data/york.geojson', 'w') as outfile:
+with open('static/data/gta_geojson.geojson', 'w') as outfile:
     json.dump(data, outfile)
 
 
