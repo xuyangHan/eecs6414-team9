@@ -4,7 +4,7 @@ import json
 from shapely.geometry import shape, Point
 
 # open geojson
-with open('static/data/york.geojson') as json_file:
+with open('static/data/new_gta_geojson') as json_file:
     geo_data = json.load(json_file)
     print(len(geo_data['features']))
 
@@ -19,8 +19,12 @@ for feature in geo_data['features']:
               '&destinations=M3J1P3&key=AIzaSyDCd0jbz9KTcTtx3QV-DafS44lsXDBAmHY'
     response = requests.get(url=api_url)
     data = response.json()
-    time = data['rows'][0]["elements"][0]['duration']['value']
-    distance = data['rows'][0]["elements"][0]['distance']['value']
+    if data['rows'][0]['elements'][0]['status'] == "ZERO_RESULTS":
+        time = 999999
+        distance = 999999
+    else:
+        time = data['rows'][0]["elements"][0]['duration']['value']
+        distance = data['rows'][0]["elements"][0]['distance']['value']
 
     feature.update({'distance': distance})
     if distance > 3000:
@@ -32,7 +36,7 @@ for feature in geo_data['features']:
 
 
 # write new json
-with open('static/data/york.geojson', 'w') as outfile:
+with open('static/data/new_gta_geojson', 'w') as outfile:
     json.dump(geo_data, outfile)
 
 
