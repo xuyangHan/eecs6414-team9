@@ -12,7 +12,7 @@
 <body>
 <div id="fullpage">
     <div class="section" id="section0">
-        <div class="intro">
+        <div class="container intro">
             <p class="title is-1 has-text-white">York Community: Demographics, Analysis and Housing Location Recommendation for New Students</p>
             <p class="subtitle is-3 has-text-white">EECS 6414: Case Study Project</p>
             <p class="subtitle is-3 has-text-white">X.Han, S.Dibadin, A.Usmani (Team 9)</p>
@@ -55,8 +55,8 @@
 
     <div class="section">
         <div class="columns">
-            <div class="column is-6">
-                <div class="box">
+            <div class="column is-4 is-offset-1">
+                <div class="box" style="position: center">
                     <img src="https://i.ibb.co/2cCb1Bk/motivation2.png">
                 </div>
             </div>
@@ -157,88 +157,15 @@
     <div class="section">
         <div class="columns">
             <div class="column is-6 is-offset-1">
-                <div id='bubbleMap' class="border is-primary"></div>
-            </div>
-            <div class="column" style="text-align: center">
-                <p class="title"> [Sample] Bubble Map</p>
-                <p class="subtitle is-3 has-text-white">A map showing the distributions of yorku students</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="columns">
-            <div class="column is-5" style="text-align: center">
-                <p class="title"> [Sample] Commutes of YorkU Students </p>
-                <p class="subtitle is-3 has-text-white">A map showing how much time students come to the university</p>
-            </div>
-            <div class="column is-6" style="background-color: azure">
-                <div id='distanceMap' class="border is-primary"></div>
-            </div>
-
-        </div>
-    </div>
-    <div class="section">
-        <div class="columns">
-            <div class="column is-6 is-offset-1">
-                <div id='supermarketDiv' class="border is-primary"></div>
+                <div id='dashboardDiv' class="border is-primary"></div>
             </div>
             <div class="column" style="text-align: center">
                 <p class="title  has-text-black"> [Sample] Map of Supermarkets</p>
                 <p class="subtitle is-3 has-text-black">A map showing the distributions of Supermarkets around YorkU</p>
             </div>
         </div>
-
     </div>
-    <div class="section">
-        <div class="columns">
-            <div class="column is-5" style="text-align: center">
-                <p class="title"> [Sample] Map of Fitness </p>
-                <p class="subtitle is-3 has-text-white">A map showing the distributions of fitness around YorkU</p>
-            </div>
-            <div class="column is-6" style="background-color: azure">
-                <div id='fitnessDiv' class="border is-primary"></div>
-            </div>
 
-        </div>
-    </div>
-    <div class="section">
-        <div class="columns">
-            <div class="column is-6 is-offset-1">
-                <div id='restaurantDiv' class="border is-primary"></div>
-            </div>
-            <div class="column" style="text-align: center">
-                <p class="title  has-text-black"> [Sample] Map of restaurants</p>
-                <p class="subtitle is-3 has-text-black">A map showing the distributions of restaurants around YorkU</p>
-            </div>
-        </div>
-    </div>
-    <!--<div class="section">-->
-    <!--<div class="columns">-->
-    <!--<div class="column is-6 is-offset-1" style="background-color: azure">-->
-    <!--<div id="chartdiv" style="width: 100%; height: 500px"></div>-->
-    <!--</div>-->
-    <!--<div class="column" style="text-align: center">-->
-    <!--<p class="title"> Sample Result - 1</p>-->
-    <!--<p class="subtitle is-3 has-text-white">A map generate using amChart.js</p>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="section">-->
-    <!--<div class="columns">-->
-    <!--<div class="column is-5" style="text-align: center">-->
-    <!--<p class="title"> Sample Result - 2</p>-->
-    <!--<p class="subtitle is-3 has-text-white">A figure generate using Chart.js</p>-->
-    <!--</div>-->
-    <!--<div class="column is-6" style="background-color: azure">-->
-    <!--<div style="width: 90%">-->
-    <!--<canvas id="canvas"></canvas>-->
-    <!--</div>-->
-    <!--<button id="randomizeData">Randomize Data</button>-->
-    <!--</div>-->
-
-    <!--</div>-->
-    <!--</div>-->
     <div class="section">
         <div class="columns">
             <div class="column is-offset-1">
@@ -261,14 +188,6 @@
                     <ul class="menu-list" style="list-style-type:disc;">
                         <li>Plotly.js</li>
                         <li>Kepler.gl</li>
-                        <li>D3.js</li>
-                    </ul>
-                    <p class="menu-label has-text-black-ter">
-                        Other Figures
-                    </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Chart.js</li>
-                        <li>amChart.js</li>
                     </ul>
                 </aside>
             </div>
@@ -315,10 +234,6 @@
 </div>
 
 <script type="text/javascript" src="static/js/6414.js"></script>
-<script type="text/javascript" src="static/js/bubbleMap.js"></script>
-<script type="text/javascript" src="static/js/distance.js"></script>
-<script type="text/javascript" src="static/js/supermarkets.js"></script>
-<script type="text/javascript" src="static/js/fitness.js"></script>
-<script type="text/javascript" src="static/js/restaurants.js"></script>
+<script type="text/javascript" src="static/js/dashboard.js"></script>
 </body>
 </html>
