@@ -207,7 +207,7 @@ Plotly.d3.json('static/data/york.geojson', function (torontojson) {
         let layout = {
             autosize: true,
             title: "Toronto",
-            height: 700,
+            height: 450,
             showlegend: true,
             hovermode: 'closest',
             margin: {

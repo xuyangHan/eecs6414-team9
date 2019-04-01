@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <script type="text/javascript" src="static/js/fullpage.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/fullpage.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/6414.css"/>
+    <title>Go Home</title>
+</head>
+<body>
+<div id="fullpage">
+    <div class="section" id="section0">
+        <div class="container intro">
+            <p class="title is-1 has-text-white">York Community: Demographics, Analysis and Housing Location Recommendation for New Students</p>
+            <p class="subtitle is-3 has-text-white">EECS 6414: Case Study Project</p>
+            <p class="subtitle is-3 has-text-white">X.Han, S.Dibadin, A.Usmani (Team 9)</p>
+        </div>
+    </div>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-offset-1 is-4">
+                <p class="title"> Project Motivation </p>
+                <p class="subtitle"> Part I </p>
+
+                <aside class="menu">
+                    <p class="menu-label has-text-white-ter">
+                        Importance
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Traveling Time and Cost</li>
+                        <li>Emergency Notifications</li>
+                        <li>Interruptions in Transit Schedules</li>
+                    </ul>
+                    <p class="menu-label has-text-white-ter">
+                        Potential Applications
+                    </p>
+                    <ol class="menu-list">
+                        <li>Demographics for YorkU students</li>
+                        <li>Scheduling and Event Planning</li>
+                        <li>Predictive analysis for future changes and emergencies</li>
+                        <li>Better transit services</li>
+                    </ol>
+                </aside>
+            </div>
+            <div class="column is-offset-1 is-5" >
+                <div class="box">
+                    <img src="https://i.ibb.co/JxDDGX8/Image-from-i-OS.png">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="columns">
+            <div class="column is-4 is-offset-1">
+                <div class="box" style="position: center">
+                    <img src="https://i.ibb.co/2cCb1Bk/motivation2.png">
+                </div>
+            </div>
+            <div class="column is-offset-1 is-5">
+                <p class="title"> Project Motivation </p>
+                <p class="subtitle"> Part II </p>
+                <aside class="menu">
+                    <p class="menu-label has-text-white-ter">
+                        Importance
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>The number of students joining York University is increasing</li>
+                        <li>Recommendations for a better quality of life should be provided to students</li>
+                    </ul>
+                    <p class="menu-label has-text-white-ter">
+                        Potential Applications
+                    </p>
+                    <ol class="menu-list">
+                        <li>Housing recommendation system</li>
+                        <li>Housing price prediction system</li>
+                    </ol>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-offset-1">
+                <p class="title"> Project Approach </p>
+                <aside class="menu">
+                    <p class="menu-label has-text-white-ter">
+                        York University Community’s Geographics Analysis
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Create Map of YorkU Community's Demographics</li>
+                    </ul>
+                    <p class="menu-label has-text-white-ter">
+                        Multi-Criteria Decision Making Architecture Establishment 
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Locate Restaurants, Gyms and Supermarkets via Google Maps API</li>
+                    </ul>
+                    <p class="menu-list has-text-white-ter">
+                        Using Analytic Hierarchy Process Methods to Determine the Criteria Weights
+                    </p>
+                    <p class="menu-label has-text-white-ter">
+                        Generate Housing Location Recomendation Map using Simple Additive Weighting Method 
+                    </p>
+                </aside>
+            </div>
+            <div class="column">
+                <div class="box">
+                    <img src="https://i.ibb.co/xj3sy7g/project-flow.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-6">
+                <div class="box">
+                    <!--img src="https://www.toronto.ca/wp-content/uploads/2017/10/8f13-WellbeingToronto-750x338.png"-->
+                     <div id="mapid" style="width: 690px; height: 338px;"></div>
+                </div>
+            </div>
+            <div class="column is-offset-1 is-5">
+                <p class="title"> Proposed Results </p>
+
+                <aside class="menu">
+                    <p class="menu-label has-text-white-ter">
+                        Demography of YorkU students/employees
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Location, distance</li>
+                        <li>Distributions of majors, year of entry/graduation</li>
+                    </ul>
+                    <p class="menu-label has-text-white-ter">
+                        Transportation modeling
+                    </p>
+                    <ol class="menu-list">
+                        <li>Average commute time and cost, most used transit</li>
+                        <li>Analysis for specific areas</li>
+                    </ol>
+                    <p class="menu-label has-text-white-ter">
+                        Predictive analysis modeling
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Demographically. “which area will gain more commuting pressure?”</li>
+                        <li>Changes in routes. “If an existing route is canceled or new route is created, how does it
+                            influence the YorkU students commuting time ”
+                        </li>
+                        <li>Bad weather impact / Service outage impact</li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="columns">
+            <div class="column is-6 is-offset-1">
+                <div id='dashboardDiv' class="border is-primary"></div>
+            </div>
+            <div class="column" style="text-align: center">
+                <p class="title  has-text-black"> [Sample] Map of Supermarkets</p>
+                <p class="subtitle is-3 has-text-black">A map showing the distributions of Supermarkets around YorkU</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="columns">
+            <div class="column is-offset-1">
+                <p class="title"> List of Data Visualization Tools:</p>
+                <div class="box">
+                    <img src="https://www.fingent.com/blog/assets/uploads/2018/03/data2.png">
+                </div>
+            </div>
+            <div class="column is-offset-1">
+                <aside class="menu">
+                    <p class="menu-label has-text-black-ter">
+                        Narrative Layout
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>fullpage.js</li>
+                    </ul>
+                    <p class="menu-label has-text-black-ter">
+                        Interactive map
+                    </p>
+                    <ul class="menu-list" style="list-style-type:disc;">
+                        <li>Plotly.js</li>
+                        <li>Kepler.gl</li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="columns">
+            <div class="column is-offset-1 is-5">
+                <p class="title">References</p>
+                <ul>
+                    <li>List of 25 municipalitiesin Greater Toronto Area (GTA) in York Region, Halton Region, Peel
+                        Region, Durham Region or Toronto with population of 6,417,516
+                    </li>
+                </ul>
+            </div>
+            <div class="column is-2">
+                <p class="title">Authors</p>
+                <ul>
+                    <li>Xuyang Han</li>
+                    <li>Sepideh Dibadin</li>
+                    <li>Aman Ullah</li>
+                </ul>
+            </div>
+            <div class="column">
+                <p class="title">Tools</p>
+                <ul>
+                    <li>Fullpage.js to make narrative layout</li>
+                    <li>Plotly.js to generate interactive map</li>
+                    <li>Chart.js and amChart.js to make relevent figures</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class="section">-->
+    <!--<div class="slide"> Slide 1</div>-->
+    <!--<div class="slide"> Slide 2</div>-->
+    <!--<div class="slide"> Slide 3</div>-->
+    <!--<div class="slide"> Slide 4</div>-->
+    <!--</div>-->
+
+
+</div>
+
+<script type="text/javascript" src="static/js/6414.js"></script>
+<script type="text/javascript" src="static/js/dashboard.js"></script>
+<script type="text/javascript" src="static/js/mappingdashboard.js"></script>
+</body>
+</html>
