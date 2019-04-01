@@ -12,47 +12,47 @@ let yorkU_data = {
 };
 
 let dashboard_data = [yorkU_data];
-Plotly.d3.csv('static/data/final.CSV', function (err, rows) {
-        function unpack(rows, key) {
-            return rows.map(function (row) {
-                return row[key];
-            });
-        }
-
-        scl = [
-            [0, 'rgb(0, 25, 255)'],
-            [0.2, 'rgb(0, 152, 255)'],
-            [0.4, 'rgb(44, 255, 150)'],
-            [0.5, 'rgb(151, 255, 0)'],
-            [0.6, 'rgb(255, 234, 0)'],
-            [0.8, 'rgb(255, 111, 0)'],
-            [1, 'rgb(255, 0, 0)']];
-
-        let final_data =
-            {
-                type: 'scattermapbox',
-                mode: 'markers',
-                lon: unpack(rows, 'cent_long'),
-                lat: unpack(rows, 'cent_lat'),
-                text: unpack(rows, 'name'),
-                name: 'score',
-                marker: {
-                    color: unpack(rows, 'scores'),
-                    colorscale: scl,
-                    cmin: 0,
-                    cmax: 1,
-                    reversescale: false,
-                    size: 10,
-                    opacity: 0.9,
-                    colorbar: {
-                        thickness: 10,
-                        titleside: 'right',
-                        outlinecolor: 'rgba(68,68,68,0)',
-                    }
-                }
-            };
-        dashboard_data.push(final_data);
-});
+// Plotly.d3.csv('static/data/final.CSV', function (err, rows) {
+//         function unpack(rows, key) {
+//             return rows.map(function (row) {
+//                 return row[key];
+//             });
+//         }
+//
+//         scl = [
+//             [0, 'rgb(0, 25, 255)'],
+//             [0.2, 'rgb(0, 152, 255)'],
+//             [0.4, 'rgb(44, 255, 150)'],
+//             [0.5, 'rgb(151, 255, 0)'],
+//             [0.6, 'rgb(255, 234, 0)'],
+//             [0.8, 'rgb(255, 111, 0)'],
+//             [1, 'rgb(255, 0, 0)']];
+//
+//         let final_data =
+//             {
+//                 type: 'scattermapbox',
+//                 mode: 'markers',
+//                 lon: unpack(rows, 'cent_long'),
+//                 lat: unpack(rows, 'cent_lat'),
+//                 text: unpack(rows, 'name'),
+//                 name: 'score',
+//                 marker: {
+//                     color: unpack(rows, 'scores'),
+//                     colorscale: scl,
+//                     cmin: 0,
+//                     cmax: 1,
+//                     reversescale: false,
+//                     size: 10,
+//                     opacity: 0.9,
+//                     colorbar: {
+//                         thickness: 10,
+//                         titleside: 'right',
+//                         outlinecolor: 'rgba(68,68,68,0)',
+//                     }
+//                 }
+//             };
+//         dashboard_data.push(final_data);
+// });
 
 Plotly.d3.csv('static/data/yuride_postalcodes_filtered_latlng_only.CSV', function (err, rows) {
     function unpack(rows, key) {
