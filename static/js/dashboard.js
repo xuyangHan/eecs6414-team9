@@ -187,9 +187,11 @@ Plotly.d3.json('static/data/york.geojson', function (torontojson) {
         let data_layers = [];
         for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
             let source = torontojson["features"][feature_num];
+
             let r_value = 255;
             let g_value = 500- source["score"] * 255;
             let b_value = 500- source["score"] * 255;
+
             let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.6)';
             // let color = 'rgba(255, 200, 200, 0.5)';
             data_layers.push(
@@ -215,20 +217,27 @@ Plotly.d3.json('static/data/york.geojson', function (torontojson) {
                 l: 10,
                 pad: 0
             },
+            yaxis: {
+                fixedrange: true
+            },
+            xaxis: {
+                fixedrange: true
+            },
             mapbox: {
                 center: {
                     lat: 43.7735,
                     lon: -79.5019
                 },
                 // style: 'light',
-                zoom: 12,
+                zoom: 10,
                 layers: data_layers,
             }
         };
 
 
         Plotly.plot('dashboardDiv', dashboard_data, layout, {
-            mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg'
+            mapboxAccessToken: 'pk.eyJ1IjoiamF5a2Fyb255b3JrIiwiYSI6ImNqa2JjZzNkeTA5ZGkzcG55OXhmcnZxMTIifQ.XotoTIdsT-bYoQpodyW3xg',
+            scrollZoom: false
         });
 
     });
