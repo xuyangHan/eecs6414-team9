@@ -39,9 +39,9 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
         let data_layers = [];
         for (let feature_num = 0; feature_num < torontojson["features"].length; feature_num++) {
             let source = torontojson["features"][feature_num];
-            let r_value = 255 - source["commute_time"]*250/1500;
-            let g_value = 255 - source["commute_time"]*125/1500;
-            let b_value = 255 - source["commute_time"]*250/1500;
+            let r_value = 255 - source["commute_time"] * 250 / 1500;
+            let g_value = 255 - source["commute_time"] * 125 / 1500;
+            let b_value = 255 - source["commute_time"] * 250 / 1500;
             let color = 'rgba(' + r_value + ', ' + g_value + ', ' + b_value + ', 0.5)';
             data_layers.push(
                 {
@@ -78,7 +78,8 @@ Plotly.d3.json('static/data/map.geojson', function (torontojson) {
 
 
         Plotly.plot('bubbleMap', data, layout, {
-                mapboxAccessToken: 'pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiRy1GV1FoNCJ9.yUPu7qwD_Eqf_gKNzDrrCQ'
+                scrollZoom: false,
+                mapboxAccessToken: 'pk.eyJ1IjoiY2hyaWRkeXAiLCJhIjoiRy1GV1FoNCJ9.yUPu7qwD_Eqf_gKNzDrrCQ',
             }
         );
     });
