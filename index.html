@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script type="text/javascript" src="static/js/fullpage.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/fullpage.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/6414.css"/>
     <title>Go Home</title>
@@ -29,22 +26,11 @@
 
                 <aside class="menu">
                     <p class="menu-label has-text-white-ter">
-                        Importance
+                        Demography of YorkU Community
                     </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Traveling Time and Cost</li>
-                        <li>Emergency Notifications</li>
-                        <li>Interruptions in Transit Schedules</li>
-                    </ul>
-                    <p class="menu-label has-text-white-ter">
-                        Potential Applications
+                    <p class="menu-list" style="list-style-type:disc;">
+                        One of the aims of this project is representing the current demographics of students and commuting conditions of the York University community. Clustering model is the algorithm considered which is used to identify the community members’ locations and find the transportation routes they can use to commute to YorkU, Keele campus. The clustering model identifies clusters of population in each region of Greater Toronto Area (GTA) and surroundings. 
                     </p>
-                    <ol class="menu-list">
-                        <li>Demographics for YorkU students</li>
-                        <li>Scheduling and Event Planning</li>
-                        <li>Predictive analysis for future changes and emergencies</li>
-                        <li>Better transit services</li>
-                    </ol>
                 </aside>
             </div>
             <div class="column is-offset-1 is-5" >
@@ -68,51 +54,140 @@
                 <p class="subtitle"> Part II </p>
                 <aside class="menu">
                     <p class="menu-label has-text-white-ter">
-                        Importance
+                        Housing Recommendations for New Students
                     </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>The number of students joining York University is increasing</li>
-                        <li>Recommendations for a better quality of life should be provided to students</li>
-                    </ul>
-                    <p class="menu-label has-text-white-ter">
-                        Potential Applications
+                    <p class="menu-list" style="list-style-type:disc;">
+                        Another aim of this project is generating a recommendation map of off-campus housing locations for the students to have a beter quality of life. Multi-criteria decision making is the main structure that is followed. Commuting time from each location, is considered as the main attribute toward a good housing location. Other criteria such as near to shopping centers, food and recreation sites are also considered for analysis. Weights are assigned to all these criteria using the Analytic Hierarchy Process (AHP) method. Then, Simple Additive Weighting (SAW) method is used and a final off-campus housing recommendation map is generated, showing optimal living locations.
                     </p>
-                    <ol class="menu-list">
-                        <li>Housing recommendation system</li>
-                        <li>Housing price prediction system</li>
-                    </ol>
                 </aside>
             </div>
         </div>
     </div>
     <div class="section">
         <div class="columns">
-            <div class="column is-offset-1">
-                <p class="title"> Project Approach </p>
+            <div class="column is-offset-1 is-5">
+                <p class="title"> Related Work </p>
                 <aside class="menu">
                     <p class="menu-label has-text-white-ter">
-                        York University Community’s Geographics Analysis
+                        OIPA Warehouse
                     </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Create Map of YorkU Community's Demographics</li>
-                    </ul>
-                    <p class="menu-label has-text-white-ter">
-                        Multi-Criteria Decision Making Architecture Establishment 
-                    </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Locate Restaurants, Gyms and Supermarkets via Google Maps API</li>
-                    </ul>
-                    <p class="menu-list has-text-white-ter">
-                        Using Analytic Hierarchy Process Methods to Determine the Criteria Weights
-                    </p>
-                    <p class="menu-label has-text-white-ter">
-                        Generate Housing Location Recomendation Map using Simple Additive Weighting Method 
+                    <p class="menu-list" style="list-style-type:disc;">
+                        OIPA York University provides an institutional data hub to the general public for research and metrics. It also provides some useful visualizations as interactive charts which displays criteria based on historical data along with enrollment, retention, research, faculty and staff, physical space and more. Though, interpretations from the visualized data are beneficial but aren’t significant to conduct analysis for the provided amount of data. The interactive dashboard is focused on presenting reports on collected data which is available as processed information and not completely raw. Moreover, parameters are limited and require time-consuming authentication process to look for more detailed insights on data. Hence, meaningful analysis of processed data is more challenging. This project aims to collect and analyze data from the OIPA warehouse and put better visual analysis in terms of demographics, interactive maps, dynamic analysis tools and projections based on processed information. Using data from relative sources of transportation portrays meaningful and concrete results towards the insights on demographics and YorkU community' commute issues. 
                     </p>
                 </aside>
             </div>
-            <div class="column">
+            <div class="column is-5" >
                 <div class="box">
-                    <img src="https://i.ibb.co/xj3sy7g/project-flow.jpg">
+                    <img src="https://i.ibb.co/0DtktYR/UG-Student-Headcount-sample.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-offset-1 is-5">-->
+                <!--<p class="title"> Methodology I </p>-->
+                <!--<aside class="menu">-->
+                    <!--<p class="menu-label has-text-white-ter">-->
+                        <!--York University Community’s Geographics Analysis-->
+                    <!--</p>-->
+                    <!--<p class="menu-list" style="list-style-type:disc;">-->
+                        <!--Interactive maps are developed to represent the demography of the community members and public transportation routes. The data is statically analyzed to count the number of students from each region, their travel time and cost by different means of transportation. Considering the region based data, insights like lifestyle and recently developed communities are identified.-->
+                        <!--The postal codes of community members travelling to York University are analyzed for this purpose. Initially, methods involve representation of postal codes on the map via geocoding using APIs like Google API and MapQuest, and algorithms to compute cost and time required to travel from each postal code or region to York. This process involves data from transit services to be incorporated. The proposed analysis is extracting potential correlations between distance and the number of students from each region. However, this analysis is helpful to identify which route is critical in terms of commute via public transit, personal or carpool and what factors can affect the services for given conditions.-->
+                    <!--</p>-->
+                <!--</aside>-->
+            <!--</div>-->
+            <!--<div class="column is-5">-->
+                <!--<div class="box">-->
+                    <!--<img src="https://i.ibb.co/xj3sy7g/project-flow.jpg">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-offset-1 is-5">-->
+                <!--<div class="box">-->
+                    <!--<img src="https://i.ibb.co/kmWB2ch/mcdm1.png">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="column is-5">-->
+                <!--<p class="title"> Methodology II </p>-->
+                <!--<aside class="menu">-->
+                    <!--<p class="menu-label has-text-white-ter">-->
+                         <!--Multi-Criteria Decision Making Architecture Establishment-->
+                    <!--</p>-->
+                    <!--<p class="menu-list" style="list-style-type:disc;">-->
+                        <!--This project generates a recommendation map of the best housing locations for YorkU students based on four factors: “Close to the University and Short Commuting Time”, “Easy for Shopping”, “Have Good Food around” and “Full of Recreation Sites around”. For this purpose, potential living regions are filtered by radius of 12 kilometres (to accomodate students with no vehicles) around campus. Based on the fact that the regions used for perfoming commuting time analysis are too big and are not suitable for living areas recommendations, the filtered regions are divided into smaller regions and not suitable regions (such as airports) are discarded. -->
+                    <!--</p>-->
+                <!--</aside>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-offset-1 is-5">-->
+                <!--<p class="title"> Methodology III </p>-->
+                <!--<aside class="menu">-->
+                <!--<p class="menu-label has-text-white-ter">-->
+                    <!--Using Analytic Hierarchy Process Methods to Determine the Criteria Weights-->
+                <!--</p>-->
+                <!--<p class="menu-list" style="list-style-type:disc;">-->
+                    <!--After deciding the criteria that will be used for the goal, importance or weights are assigned for each criterion. Since different criteria can have a different level of influence on the final decision making, using a scientific method to assign the weights is very important to the final accuracy. Analytical Hierarchy Process (AHP), a kind of pairwise comparison method is used to determine the weights.-->
+                    <!--By the AHP method, the weights are determined by normalizing the eigenvector associated with the maximum eigenvalue of the ratio matrix. The general procedures of AHP method are listed as below:-->
+                    <!--<ol class="menu-list" style="list-style-type:disc;">-->
+                        <!--<li> Development of the Pairwise Comparison Matrix</li>-->
+                        <!--<li>Computation of the Criterion Weights</li>-->
+                        <!--<li>Estimation of the Consistency Index (CI) Value</li>-->
+                    <!--</ol>-->
+                <!--</p>-->
+                <!--</aside>-->
+             <!--</div>-->
+            <!--<div class="column is-5">-->
+                <!--<div class="box">-->
+                    <!--<img src="https://i.ibb.co/QQMqSC4/ahp.jpg">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="section">-->
+        <!--<div class="columns">-->
+            <!--<div class="column is-offset-1 is-4">-->
+                <!--<div class="box">-->
+                    <!--<img src="https://i.ibb.co/Bgsc7LP/saw.png">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="column is-6">-->
+                <!--<p class="title"> Methodology IV </p>-->
+                <!--<aside class="menu">-->
+                <!--<p class="menu-label has-text-white-ter">-->
+                    <!--Generate Housing Location Recomendation Map using Simple Additive Weighting Method   -->
+                <!--</p>-->
+                <!--<p class="menu-list" style="list-style-type:disc;">-->
+                    <!--After determining the weight of each attribute, an overall score is rated based on the criteria and the weights. Reclassification process is performed so that all criteria share the same common measure, in 0 to 1 equal intervals level. Linear transformation of data is utilized for reclassifying the attributes. Take commuting time as an example, the students who live nearest to the University will use X_jmin minutes to commute to school while the students live farthest will take X_jmax minutes to commute. -->
+                    <!--The standardized scores for all four are obtained using the linear transformation algorithm. To get scientific score of each attribute and avoid bias, the ratings of each store or restaurants in Google Maps platform are counted. This way, the score presents overall level of “surrounded by good features”. So, the raw score for these attributes is “the sum of the feature ratings within the region area”. Take ‘close to supermarkets’ as an example, ratings of all the supermarkets in each alternative regions are counted as a raw score. -->
+                    <!--After gaining all standardized scores from all the attributes, the overall score is calculated using the Simple Additive Weighting (SAW) method. Then, as a result, locations with high scores are more recommended for students to live while locations with low scores are not recommended. Finally, the recommendation map is generated based on it.-->
+                <!--</p>-->
+                <!--</aside>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="section">
+        <div class="columns">
+            <div class="column is-offset-1 is-5">
+                <p class="title"> Results I</p>
+                <aside class="menu">
+                    <p class="menu-label has-text-white-ter">
+                        YorkU Community's Geographics Analysis
+                    </p>
+                    <p class="menu-list" style="list-style-type:disc;">
+                        Datasets visualized after processing are evaluated with relative APIs to cross analyze the precision of processed results and uncertainties for different evaluations. Since means of travelling could be different based on time of the day or day, thus consideration for the defined criteria of time slots are considered and results are generated based on that. However, analysis can be generalized for possible time slot scenarios as part of future implementations but currently study focuses towards fixed slots. Apart from postal data sets, useful community information are extracted from the OIPA warehouse and raw transportation information from transit services are evaluated along with routing APIs to put forward better results. Major implications are towards the real-time evaluation of time effective and multiple criteria defined for MCDM analysis. Since handling stream data is another challenge so firstly our aim is for building a system that is robust and reliable with given or updated datasets and providing the foundation for supporting future improvements towards more enhanced features.
+                    </p>
+                </aside>
+            </div>
+            <div class="column is-5">
+                <div class="box">
+                    <img src="https://i.ibb.co/FJm9N4k/Student-based-distribution.png">
                 </div>
             </div>
         </div>
@@ -121,51 +196,21 @@
         <div class="columns">
             <div class="column is-6">
                 <div class="box">
-                    <!--img src="https://www.toronto.ca/wp-content/uploads/2017/10/8f13-WellbeingToronto-750x338.png"-->
-                     <div id="mapid" style="width: 690px; height: 338px;"></div>
+                    <!--<img src="https://i.ibb.co/cXNnsrq/recommended.png">-->
+                    <div id="dashboardDiv"></div>
                 </div>
             </div>
-            <div class="column is-offset-1 is-5">
-                <p class="title"> Proposed Results </p>
-
+            <div class="column is-5">
+                <p class="title"> Results II</p>
                 <aside class="menu">
                     <p class="menu-label has-text-white-ter">
-                        Demography of YorkU students/employees
+                        Housing Recommendation Map
                     </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Location, distance</li>
-                        <li>Distributions of majors, year of entry/graduation</li>
-                    </ul>
-                    <p class="menu-label has-text-white-ter">
-                        Transportation modeling
+                    <p class="menu-list" style="list-style-type:disc;">
+                        Housing location recommendation map result is evaluated using the real student distribution data. The recommended living areas for new students are presented as blue areas on the map. 
+                        It can be observed that in addition to living around the campus, living at Jane and Finch area, the east campus and around Yonge Street areas are also recommended by our algorithm. It can be seen that living around campus areas are recommended based on the advantages of less commuting time. Living around Jane and Finch area, and Yonge Street area are recommended based on advantages of good restaurants around. 
                     </p>
-                    <ol class="menu-list">
-                        <li>Average commute time and cost, most used transit</li>
-                        <li>Analysis for specific areas</li>
-                    </ol>
-                    <p class="menu-label has-text-white-ter">
-                        Predictive analysis modeling
-                    </p>
-                    <ul class="menu-list" style="list-style-type:disc;">
-                        <li>Demographically. “which area will gain more commuting pressure?”</li>
-                        <li>Changes in routes. “If an existing route is canceled or new route is created, how does it
-                            influence the YorkU students commuting time ”
-                        </li>
-                        <li>Bad weather impact / Service outage impact</li>
-                    </ul>
                 </aside>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="columns">
-            <div class="column is-6 is-offset-1">
-                <div id='dashboardDiv' class="border is-primary"></div>
-            </div>
-            <div class="column" style="text-align: center">
-                <p class="title  has-text-black"> [Sample] Map of Supermarkets</p>
-                <p class="subtitle is-3 has-text-black">A map showing the distributions of Supermarkets around YorkU</p>
             </div>
         </div>
     </div>
@@ -205,6 +250,12 @@
                     <li>List of 25 municipalitiesin Greater Toronto Area (GTA) in York Region, Halton Region, Peel
                         Region, Durham Region or Toronto with population of 6,417,516
                     </li>
+                    <li>Eshlaghy, Abbas & Homayonfar, Mahdi. (2011). MCDM Methodologies and Applications: A Literature Review from 1999 to 2009. 21. </li>
+                    <li>O.S. Vaidya, S. Kumar, Analytic hierarchy process: An overview of applications, European Journal of Operational Research, 169 (1) (2006), pp. 1-29 </li>
+                    <li>W. Ho, Integrated analytic hierarchy process and its applications—a literature review, European Journal of Operational Research, 186 (2008), pp. 211-228</li>
+                    <li>Data Hub, Office of Institutional Planning and Analysis (OIPA). <span><a href="http://oipa.info.yorku.ca/data-hub/">The Link.</a></span></li>
+                    <li>YU Ride - save transit campaign. <span><a href=" https://www.yuride.ca/">The Link. </a></span></li>
+                    <li>Canadian Postal Codes - GeoCoder (9.29). Google Fusion Tables</li>
                 </ul>
             </div>
             <div class="column is-2">
@@ -220,7 +271,6 @@
                 <ul>
                     <li>Fullpage.js to make narrative layout</li>
                     <li>Plotly.js to generate interactive map</li>
-                    <li>Chart.js and amChart.js to make relevent figures</li>
                 </ul>
             </div>
         </div>
@@ -239,6 +289,5 @@
 
 <script type="text/javascript" src="static/js/6414.js"></script>
 <script type="text/javascript" src="static/js/dashboard.js"></script>
-<script type="text/javascript" src="static/js/mappingdashboard.js"></script>
 </body>
 </html>
