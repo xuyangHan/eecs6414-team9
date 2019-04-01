@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <script type="text/javascript" src="static/js/fullpage.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/fullpage.css"/>
     <link rel="stylesheet" type="text/css" href="static/css/6414.css"/>
     <title>Go Home</title>
@@ -118,7 +121,8 @@
         <div class="columns">
             <div class="column is-6">
                 <div class="box">
-                    <img src="https://www.toronto.ca/wp-content/uploads/2017/10/8f13-WellbeingToronto-750x338.png">
+                    <!--img src="https://www.toronto.ca/wp-content/uploads/2017/10/8f13-WellbeingToronto-750x338.png"-->
+                     <div id="mapid" style="width: 690px; height: 338px;"></div>
                 </div>
             </div>
             <div class="column is-offset-1 is-5">
@@ -235,5 +239,6 @@
 
 <script type="text/javascript" src="static/js/6414.js"></script>
 <script type="text/javascript" src="static/js/dashboard.js"></script>
+<script type="text/javascript" src="static/js/mappingdashboard.js"></script>
 </body>
 </html>
