@@ -3,38 +3,42 @@ import pandas as pd
 import json
 import time
 import random
+import math
 
-def savedata(uniqueGTAPC, uniqueGTAPCRoutes, routesFound, routesMissing):
+def savedata(uniqueGTAPC, oldGTAPCRoutes, uniqueGTAPCRoutes, routesFound, routesMissing):
     writer = pd.ExcelWriter('static/data/yuride_postalcodes_gta_routes.xlsx', engine='openpyxl')
 
     uniqueGTAPC = pd.DataFrame(uniqueGTAPC).T
     uniqueGTAPC.to_excel(writer, sheet_name='Unique GTA Routes')
 
+    oldGTAPCRoutes = pd.DataFrame(oldGTAPCRoutes)
+    oldGTAPCRoutes.to_excel(writer, sheet_name='Unique GTA Detailed Routes')
+
     uniqueGTAPCRoutes = pd.DataFrame(uniqueGTAPCRoutes)
-    uniqueGTAPCRoutes.to_excel(writer, sheet_name='Unique GTA Detailed Routes')
+    uniqueGTAPCRoutes.to_excel(writer, sheet_name='Unique GTA Detailed Routes New')
 
     writer.save()
     writer.close()
     print(len(uniqueGTAPC), routesFound, routesMissing)
 
-uniqueGTAPC = pd.read_excel(open('static/data/yuride_postalcodes_filtered-master.xlsx', 'rb'),
-                                sheetname='Unique GTA')
-#op = open('static/data/yuride_postalcodes_gta_routes.xlsx', 'rb')
-#uniqueGTAPC = pd.read_excel(op, sheetname='Unique GTA Routes')
-#op.close()
+#uniqueGTAPC = pd.read_excel(open('static/data/yuride_postalcodes_filtered-master.xlsx', 'rb'),
+#                                sheetname='Unique GTA')
+xls = pd.ExcelFile(open('static/data/yuride_postalcodes_gta_routes.xlsx', 'rb'))
+uniqueGTAPC = pd.read_excel(xls, sheetname='Unique GTA Routes')
+oldGTAPCRoutes = pd.read_excel(xls, sheetname='Unique GTA Detailed Routes')
+xls.close()
 
 uniqueGTAPC = uniqueGTAPC.T.to_dict()
-#example
-#uniqueGTAPC = {'PostalCode': {'Count': count, 'FSA': fsa, 'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': ''}
+#example uniqueGTAPC = {'PostalCode': {'Count': count, 'FSA': fsa, 'Latitude': 0, 'Longitude': 0, 'Count': 0, 'Place Name': ''}
 
 #key = 'A7FP1BzPfz5siKlXeHzdOXl2dhpdPhGS'
-key = 'YTsA0biDDXWO7D4ZARR5UeKBK2c7GNKn'
+key = 's1GPmzw9tphzeUDyr7lmjvGWbbLS9Ef4' #'zi0urTwPkQa1SJa4pBek4qxq7dzoY3oT' #'YTsA0biDDXWO7D4ZARR5UeKBK2c7GNKn'
 savedInException = False
 routesFound = 0
 routesMissing = 0
 uniqueGTAPCRoutes = []
 for pCode, pDetails in uniqueGTAPC.items():
-    if not pDetails['boundingBox']:
+    if type(pDetails['boundingBox']) is float:
         try:
             api_url = 'http://www.mapquestapi.com/directions/v2/optimizedroute?key=' + key \
                       + '&json={"locations":[' \
@@ -83,23 +87,22 @@ for pCode, pDetails in uniqueGTAPC.items():
 
             # sleep for 250-350 milliseconds until next request
             #time.sleep(random.uniform(.15, .25))
-            #time.sleep(.1)
+            time.sleep(.1)
             # sleep for random
-            if routesFound % 100 == 0:
-                time.sleep(1)
-                #time.sleep(random.uniform(1, 3))
+            #if routesFound % 300 == 0:
+            #    time.sleep(.5)
+            #    #time.sleep(random.uniform(1, 3))
         except requests.exceptions.Timeout:
             print "Timeout occurred"
-            savedata(uniqueGTAPC, uniqueGTAPCRoutes, routesFound, routesMissing)
+            savedata(uniqueGTAPC, oldGTAPCRoutes, uniqueGTAPCRoutes, routesFound, routesMissing)
             savedInException = True
         except requests.exceptions.ConnectionError:
             print "Connection Error"
-            savedata(uniqueGTAPC, uniqueGTAPCRoutes, routesFound, routesMissing)
+            savedata(uniqueGTAPC, oldGTAPCRoutes, uniqueGTAPCRoutes, routesFound, routesMissing)
             savedInException = True
         except requests.exceptions.BaseHTTPError:
             print requests.exceptions.BaseHTTPError.message
-            savedata(uniqueGTAPC, uniqueGTAPCRoutes, routesFound, routesMissing)
+            savedata(uniqueGTAPC, oldGTAPCRoutes, uniqueGTAPCRoutes, routesFound, routesMissing)
             savedInException = True
 
-if not savedInException:
-    savedata(uniqueGTAPC, uniqueGTAPCRoutes, routesFound, routesMissing)
+savedata(uniqueGTAPC, oldGTAPCRoutes, uniqueGTAPCRoutes, routesFound, routesMissing)
